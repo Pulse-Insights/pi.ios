@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveyMainViewController" customModule="PulseInsightLibrary">
+            <connections>
+                <outlet property="backOverlayView" destination="cPR-nN-iHd" id="SQJ-ra-BSG"/>
+                <outlet property="invitationWidget" destination="S1A-WQ-AxV" id="CiJ-ug-pMY"/>
+                <outlet property="piSurveyView" destination="aGN-0t-Ntf" id="5GN-yj-MGC"/>
+                <outlet property="surveyMarginBottom" destination="jAm-jb-fGo" id="war-ua-yHa"/>
+                <outlet property="surveyMarginTop" destination="SYE-yg-KJV" id="gfK-D3-Epy"/>
+                <outlet property="view" destination="Ouy-ne-wTD" id="Rwt-jH-qIF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Ouy-ne-wTD">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPR-nN-iHd">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <color key="backgroundColor" red="0.49633662564766845" green="0.48971109699695325" blue="0.48055581532698116" alpha="0.64637433978873238" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGN-0t-Ntf" customClass="SurveyView" customModule="PulseInsights" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S1A-WQ-AxV" customClass="WidgetView" customModule="PulseInsights" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="3hm-2A-Kwq"/>
+            <color key="backgroundColor" red="0.96991185899999999" green="0.96991185899999999" blue="0.96991185899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cPR-nN-iHd" firstAttribute="leading" secondItem="Ouy-ne-wTD" secondAttribute="leading" id="CYi-7y-fsk"/>
+                <constraint firstItem="aGN-0t-Ntf" firstAttribute="top" secondItem="3hm-2A-Kwq" secondAttribute="top" id="SYE-yg-KJV"/>
+                <constraint firstItem="S1A-WQ-AxV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ouy-ne-wTD" secondAttribute="top" id="csm-q2-esA"/>
+                <constraint firstItem="3hm-2A-Kwq" firstAttribute="trailing" secondItem="aGN-0t-Ntf" secondAttribute="trailing" id="dxi-dK-nk2"/>
+                <constraint firstAttribute="bottom" secondItem="S1A-WQ-AxV" secondAttribute="bottom" id="eFm-WG-9XR"/>
+                <constraint firstItem="3hm-2A-Kwq" firstAttribute="bottom" secondItem="aGN-0t-Ntf" secondAttribute="bottom" id="jAm-jb-fGo"/>
+                <constraint firstAttribute="bottom" secondItem="cPR-nN-iHd" secondAttribute="bottom" id="jzl-QS-jlx"/>
+                <constraint firstAttribute="trailing" secondItem="S1A-WQ-AxV" secondAttribute="trailing" id="klc-EV-awz"/>
+                <constraint firstItem="S1A-WQ-AxV" firstAttribute="leading" secondItem="Ouy-ne-wTD" secondAttribute="leading" id="m1u-Zk-D97"/>
+                <constraint firstItem="aGN-0t-Ntf" firstAttribute="leading" secondItem="3hm-2A-Kwq" secondAttribute="leading" id="nJN-gR-cGa"/>
+                <constraint firstAttribute="trailing" secondItem="cPR-nN-iHd" secondAttribute="trailing" id="oZb-cH-aBX"/>
+                <constraint firstItem="cPR-nN-iHd" firstAttribute="top" secondItem="Ouy-ne-wTD" secondAttribute="top" id="uL2-Jf-tFB"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="180.80000000000001" y="170.91454272863569"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
