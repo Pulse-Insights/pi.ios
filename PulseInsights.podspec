@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://pulseinsights.com'
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author           = { 'Pulse Insights' => 'hello@pulseinsights.com' }
-  s.source           = { :http => 'https://github.com/Pulse-Insights/pi.ios.git', :tag => "#{s.version}" }
+  s.source           = { :git => 'https://github.com/Pulse-Insights/pi.ios.git', :tag => s.version }
   s.source_files = 'PulseInsightLibrary/**/*.swift'
   s.ios.deployment_target = '11.0'
   s.frameworks = 'UIKit'
