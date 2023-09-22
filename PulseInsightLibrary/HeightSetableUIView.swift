@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class HeightSetableUIView: UIView {
     var heightConstranint: NSLayoutConstraint?

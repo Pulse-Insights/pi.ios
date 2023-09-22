@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class PaddingLabel: HeightSetableUIView {
     @IBOutlet weak var textLabel: UILabel! {

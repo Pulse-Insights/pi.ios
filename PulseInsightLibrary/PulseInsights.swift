@@ -9,6 +9,7 @@
 import Foundation
 
 import CoreMotion
+import UIKit
 
 private var mNowViewController: UIViewController?
 

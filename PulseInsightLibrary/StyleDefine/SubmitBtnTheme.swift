@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 open class SubmitBtnTheme {
     //Include the button on the invite widget

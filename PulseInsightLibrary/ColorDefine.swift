@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ColorDefine {
     static let ButtonTextColorHex: String = "#FFFFFF"

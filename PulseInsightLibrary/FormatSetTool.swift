@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 let targetIdBold: NSInteger = 0
 let targetIdItalic: NSInteger = 1

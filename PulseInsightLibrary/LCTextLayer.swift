@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CoreGraphics
+import QuartzCore
 class LCTextLayer : CATextLayer {
 
     // REF: http://lists.apple.com/archives/quartz-dev/2008/Aug/msg00016.html

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SurveyTextType: UIView, UITextViewDelegate {
     @IBOutlet weak var txtHintPart: UITextView!

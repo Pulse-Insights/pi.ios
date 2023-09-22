@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class HightlightButton: UIButton {
     var highlightAction : ((Bool) -> Void)?

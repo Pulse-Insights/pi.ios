@@ -8,6 +8,7 @@
 // swiftlint:disable type_body_length
 
 import Foundation
+import UIKit
 
 open class SurveyView: UIView {
     @IBOutlet weak var scrollView: UIScrollView!
