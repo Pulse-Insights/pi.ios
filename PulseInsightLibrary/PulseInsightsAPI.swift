@@ -20,7 +20,6 @@ class PulseInsightsAPI {
             "launch_times": String(PIPreferencesManager.sharedInstance.getLaunchCount()),
             "preview_mode": String(LocalConfig.instance.previewMode),
             "view_name": LocalConfig.instance.strViewName,
-            "callback": ""
         ]
     }
 
@@ -115,7 +114,6 @@ class PulseInsightsAPI {
             "identifier": LocalConfig.instance.strAccountID,
             "question_id": strQuestionID,
             str_qidTagName: strPostAnswers,
-            "callback": ""
         ]
         let queryUrl = composeUrlString(path: "/submissions/\(LocalConfig.instance.strSubmitID)/answer", queryProps: props)
         HttpCore.requestUrl(queryUrl) { (data) -> Void in
@@ -150,7 +148,7 @@ class PulseInsightsAPI {
     }
 
     class func postClose(_ callback:@escaping (_ bResult: Bool) -> Void) {
-        let queryUrl = composeUrlString(path: "/submissions/\(LocalConfig.instance.strSubmitID)/close", queryProps: ["callback": ""])
+        let queryUrl = composeUrlString(path: "/submissions/\(LocalConfig.instance.strSubmitID)/close")
         HttpCore.requestUrl(queryUrl) { (data) -> Void in
             if data != "error"{
                 callback(true)
@@ -162,8 +160,7 @@ class PulseInsightsAPI {
     class func getQuestionDetail(_ callback:@escaping (_ bResult: Bool) -> Void) {
 
         let queryMap = [
-            "identifier" : LocalConfig.instance.strAccountID,
-            "callback" : ""
+            "identifier" : LocalConfig.instance.strAccountID
         ]
         let queryUrl = composeUrlString(path: "/surveys/\(LocalConfig.instance.strCheckingSurveyID)/questions", queryProps: queryMap)
         HttpCore.requestUrl(queryUrl) { (data: String) -> Void in
