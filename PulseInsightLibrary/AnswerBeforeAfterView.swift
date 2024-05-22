@@ -40,6 +40,11 @@ class AnswerBeforeAfterView: HeightSetableUIView {
     }
 
     func show(items: [String]) {
+        // Remove all subviews from the stack view
+        for view in stackView.arrangedSubviews {
+            stackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
         items.forEach {
             let label = UILabel()
             label.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(
