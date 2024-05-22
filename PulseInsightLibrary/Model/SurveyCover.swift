@@ -36,6 +36,10 @@ class SurveyCover: Decodable {
     var render_after_x_seconds: Int?
     var sdk_inline_target_selector: String?
     var theme_native: RemoteTheme?
+    var display_all_questions: String?
+    var all_at_once_empty_error_enabled: String?
+    var all_at_once_submit_label: String?
+    var all_at_once_error_text: String?
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -50,6 +54,10 @@ class SurveyCover: Decodable {
         case render_after_x_seconds
         case sdk_inline_target_selector
         case theme_native
+        case display_all_questions
+        case all_at_once_empty_error_enabled
+        case all_at_once_submit_label
+        case all_at_once_error_text
     }
 }
 extension SurveyCover {
@@ -103,5 +111,19 @@ extension SurveyCover {
     }
     var inlineTrackId: String {
         return sdk_inline_target_selector ?? ""
+    }
+    var displayAllQuestions: Bool {
+        let enable = display_all_questions ?? "f"
+        return enable.lowercased() == "t"
+    }
+    var allAtOnceEmptyErrorEnabled: Bool {
+        let enable = all_at_once_empty_error_enabled ?? "f"
+        return enable.lowercased() == "t"
+    }
+    var allAtOnceSubmitLabel: String {
+        return all_at_once_submit_label ?? "Submit all"
+    }
+    var allAtOnceErrorText: String {
+        return all_at_once_error_text ?? ""
     }
 }

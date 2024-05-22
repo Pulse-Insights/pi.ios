@@ -133,6 +133,10 @@
 		BB5B25EC2A945EA7009383F9 /* OtherTestSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5B25EB2A945EA7009383F9 /* OtherTestSurveyViewController.swift */; };
 		BB5B25EE2A94945E009383F9 /* AppDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5B25ED2A94945E009383F9 /* AppDemoViewController.swift */; };
 		BB5B25F02A94A8E7009383F9 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5B25EF2A94A8E7009383F9 /* BaseUIViewController.swift */; };
+		BB9D42302BF5DC200037C343 /* SurveyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D422F2BF5DC200037C343 /* SurveyItemView.swift */; };
+		BB9D42342BF5F7650037C343 /* SurveyItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB9D42332BF5F7650037C343 /* SurveyItemView.xib */; };
+		BB9F60852BFB36B90018D7FA /* AllQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F60842BFB36B90018D7FA /* AllQuestionTableViewCell.swift */; };
+		BB9F608B2BFDD6C00018D7FA /* SurveyAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F608A2BFDD6C00018D7FA /* SurveyAnswers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -324,6 +328,10 @@
 		BB5B25EB2A945EA7009383F9 /* OtherTestSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTestSurveyViewController.swift; sourceTree = "<group>"; };
 		BB5B25ED2A94945E009383F9 /* AppDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDemoViewController.swift; sourceTree = "<group>"; };
 		BB5B25EF2A94A8E7009383F9 /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		BB9D422F2BF5DC200037C343 /* SurveyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyItemView.swift; sourceTree = "<group>"; };
+		BB9D42332BF5F7650037C343 /* SurveyItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveyItemView.xib; sourceTree = "<group>"; };
+		BB9F60842BFB36B90018D7FA /* AllQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		BB9F608A2BFDD6C00018D7FA /* SurveyAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAnswers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +440,7 @@
 				41BBDE6823D82E4B001E69E9 /* SurveyTicket.swift */,
 				41BBDE6A23D93908001E69E9 /* Survey.swift */,
 				41BBDE6C23D93CAF001E69E9 /* SurveyCover.swift */,
+				BB9F608A2BFDD6C00018D7FA /* SurveyAnswers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -533,14 +542,17 @@
 				8EA915851E24BC9B00DD282D /* SurveyTextType.swift */,
 				8E43AEA71E24B1BC0083BD9F /* SurveyTextType.xib */,
 				41B0665F2049030A008718D0 /* SurveyView.swift */,
+				41B0665D20490287008718D0 /* SurveyView.xib */,
 				41BAAF3E25515F3E00440B94 /* HeightSetableUIView.swift */,
 				3F21B72426663FC4008C263B /* AnswerBeforeAfterView.swift */,
 				41B185932445AE0E0030DB02 /* Delegate.swift */,
 				411D6BC42372A423002E1AD7 /* InlineSurveyView.swift */,
-				41B0665D20490287008718D0 /* SurveyView.xib */,
 				41B0666120495253008718D0 /* SurveyViewResult.swift */,
 				41048E29228E6C450075410A /* WidgetViewResult.swift */,
 				8EC5A6CA1E011ECF00DF25AA /* Udid.swift */,
+				BB9D422F2BF5DC200037C343 /* SurveyItemView.swift */,
+				BB9D42332BF5F7650037C343 /* SurveyItemView.xib */,
+				BB9F60842BFB36B90018D7FA /* AllQuestionTableViewCell.swift */,
 			);
 			name = PulseInsights;
 			path = PulseInsightLibrary;
@@ -786,6 +798,7 @@
 				8EA9158A1E276B0400DD282D /* SurveySelectionType.xib in Resources */,
 				8E43AEA61E1208860083BD9F /* SurveyMainViewController.xib in Resources */,
 				41B0665E20490287008718D0 /* SurveyView.xib in Resources */,
+				BB9D42342BF5F7650037C343 /* SurveyItemView.xib in Resources */,
 				8EE025181E2C999000827125 /* SurveyCustomContentType.xib in Resources */,
 				41F52281239F775600ABB81B /* PaddingLabel.xib in Resources */,
 				416E9D9F2058BE4200BE1F74 /* PollResultItem.xib in Resources */,
@@ -872,6 +885,7 @@
 				8E43AE9D1E11F7300083BD9F /* SurveyMainViewController.swift in Sources */,
 				418405A623B4B1E100AA793C /* NSObject+Extension.swift in Sources */,
 				41F5227F239F774400ABB81B /* PaddingLabel.swift in Sources */,
+				BB9F608B2BFDD6C00018D7FA /* SurveyAnswers.swift in Sources */,
 				417DD6682383E7CD00FEC6E6 /* WidgetTheme.swift in Sources */,
 				3F21B73A2668AA95008C263B /* AnswersHelperStyle.swift in Sources */,
 				8EA915861E24BC9B00DD282D /* SurveyTextType.swift in Sources */,
@@ -898,6 +912,7 @@
 				416E9DA12058BE5E00BE1F74 /* PollResultItem.swift in Sources */,
 				8EC5A6CD1E01291D00DF25AA /* HttpCore.swift in Sources */,
 				417DD64A2383E35400FEC6E6 /* CheckMarkTheme.swift in Sources */,
+				BB9F60852BFB36B90018D7FA /* AllQuestionTableViewCell.swift in Sources */,
 				4128A83023DAD0A400102876 /* PollBarStyle.swift in Sources */,
 				8E8DB12F1E07AD0400FA9F0E /* PulseInsightsAPI.swift in Sources */,
 				417DD64E2383E36F00FEC6E6 /* FontBaseTheme.swift in Sources */,
@@ -924,6 +939,7 @@
 				417DD65C2383E76A00FEC6E6 /* PollBarTheme.swift in Sources */,
 				4128A81623DAC02E00102876 /* CloseBtnStyle.swift in Sources */,
 				41F24DA12295255600B57AF9 /* UIView+Extension.swift in Sources */,
+				BB9D42302BF5DC200037C343 /* SurveyItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1138,7 +1154,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1146,13 +1162,18 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.2.5;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo.stag;
 				PRODUCT_NAME = "Staging Pulse Insights";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = StagDebug;
 		};
@@ -1263,7 +1284,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.PulseInsights;
 				PRODUCT_NAME = PulseInsights;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
 			};
@@ -1288,12 +1309,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "SuveryDemo/Pulse InsightsStagRelease.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7RBX3E5287;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1301,14 +1320,18 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.2.5;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo.stag;
 				PRODUCT_NAME = "Staging Pulse Insights";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "Pulseinsights Demo 2021-05 re";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Pulseinsights Demo";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = StagRelease;
 		};
@@ -1319,6 +1342,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.SuveryDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
@@ -1514,7 +1538,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.PulseInsights;
 				PRODUCT_NAME = PulseInsights;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
 			};
@@ -1556,7 +1580,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1564,13 +1588,18 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.2.5;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo;
 				PRODUCT_NAME = "Pulse Insights";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1580,12 +1609,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "SuveryDemo/Pulse InsightsRelease.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7RBX3E5287;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1593,14 +1620,18 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.2.5;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo;
 				PRODUCT_NAME = "Pulse Insights";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "Pulseinsights Demo 2021-05 re";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Pulseinsights Demo";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1623,6 +1654,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.SuveryDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};

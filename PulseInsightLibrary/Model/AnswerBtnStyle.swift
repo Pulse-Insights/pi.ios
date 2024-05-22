@@ -25,6 +25,7 @@ class AnswerBtnStyle: Decodable {
     var perRowBackgroundColor: String?
     var paddingVertical: CGFloat?
     var paddingHorizontal: CGFloat?
+    var backgroundColorSelected: String?
 
     private enum CodingKeys: String, CodingKey {
         case backgroundColor = "background-color"
@@ -42,12 +43,14 @@ class AnswerBtnStyle: Decodable {
         case perRowBackgroundColor = "per-row-multi-selected-background-color"
         case paddingVertical = "padding-vertical"
         case paddingHorizontal = "padding-horizontal"
+        case backgroundColorSelected = "background-color-selected"
     }
 
     func getTheme() -> AnswerBtnTheme {
         let themeObj = AnswerBtnTheme()
 
         themeObj.backgroundColor.code = backgroundColor ?? themeObj.backgroundColor.code
+        themeObj.selectedBackgroundColor.code = backgroundColorSelected ?? themeObj.selectedBackgroundColor.code
         themeObj.borderColor.code = borderColor ?? themeObj.borderColor.code
         themeObj.borderWidth = borderWidth ?? themeObj.borderWidth
         themeObj.fontColor.code = fontColor ?? themeObj.fontColor.code

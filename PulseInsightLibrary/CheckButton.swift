@@ -17,6 +17,7 @@ class CheckButton: UIView {
     lazy var canvasView: UIView = UIView()
     lazy var titleLabel: UILabel = UILabel()
     var selected: Bool = false
+    var shouldShowSelectedColor: Bool = false
     var answerImage = StyledImageView() {
         didSet {
             answerImage.imageStyle = LocalConfig.instance.themeStyle.ansImg
@@ -40,6 +41,11 @@ class CheckButton: UIView {
         self.selected = selected
         refreshImageOfButton()
     }
+    
+    func updateBackgroundColor(_ selected: Bool) {
+        self.selected = selected
+        button.backgroundColor = selected ? LocalConfig.instance.themeStyle.ansBtn.selectedBackgroundColor.color : LocalConfig.instance.themeStyle.ansBtn.backgroundColor.color
+    }
 
     var btnInnerWidth = 20
     var btnInnerHeight = 20
@@ -61,10 +67,11 @@ class CheckButton: UIView {
 
     var labelTitile = ""
 
-    func setupView(_ radioMode:Bool = false, optionDetail: SelectOption, perRowWidth: CGFloat = 0 ) {
+    func setupView(_ radioMode:Bool = false, optionDetail: SelectOption, perRowWidth: CGFloat = 0, shouldShowSelectedColor: Bool = false ) {
         self.perRowWidth = perRowWidth
         self.backgroundColor = UIColor.clear
         self.radioMode = radioMode
+        self.shouldShowSelectedColor = shouldShowSelectedColor
         let mainThemeObj = LocalConfig.instance.themeStyle
         let padding = CGFloat(mainThemeObj.ansBtn.padding)
         let hPadding = mainThemeObj.ansBtn.paddingHorizontal ?? padding
@@ -180,7 +187,10 @@ class CheckButton: UIView {
         button.isSelected = false
         button.backgroundColor = LocalConfig.instance.themeStyle.ansBtn.backgroundColor.color
         if !self.radioMode && selected && self.perRowWidth > 0 {
-            button.backgroundColor = LocalConfig.instance.themeStyle.ansBtn.perRowBackgroundColor.color
+            // need to check if it's show all questions, if so, use selectedBackgroundColor instead
+            button.backgroundColor = shouldShowSelectedColor ? LocalConfig.instance.themeStyle.ansBtn.selectedBackgroundColor.color : LocalConfig.instance.themeStyle.ansBtn.perRowBackgroundColor.color
+        } else if(self.radioMode && shouldShowSelectedColor) {
+            button.backgroundColor = selected ? LocalConfig.instance.themeStyle.ansBtn.selectedBackgroundColor.color : LocalConfig.instance.themeStyle.ansBtn.backgroundColor.color
         }
         titleLabel.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(
             labelTitile,

@@ -33,6 +33,7 @@ class SurveySelectionType: UIView {
             counterLabel.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(counterText, fontDetail: LocalConfig.instance.themeStyle.smallFont.getFormater())
         }
     }
+    var currentTicket: SurveyTicket?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,8 +52,19 @@ class SurveySelectionType: UIView {
 
     @objc func btnDoClickedSingle(_ sender: UIView!) {
         let bStatusNext: Bool = !(answerButtons[sender.tag].selected)
+        for (index, button) in answerButtons.enumerated() {
+            if index != sender.tag {
+                button.updateBackgroundColor(false)
+            }
+        }
         answerButtons[sender.tag].selectButton(bStatusNext)
-        callBackBtnClicked?(selectAnswers[sender.tag].itemId, selectAnswers[sender.tag].nextQuestionId)
+        var answer = ""
+        if LocalConfig.instance.surveyPack.survey.displayAllQuestions {
+            answer = answerButtons[sender.tag].selected ? selectAnswers[sender.tag].itemId : ""
+        } else {
+            answer = selectAnswers[sender.tag].itemId
+        }
+        callBackBtnClicked?(answer, currentTicket!.surveyId)
     }
     @objc func btnDoClickedMuti(_ sender: CheckButton!) {
         let bStatusNext: Bool = !(answerButtons[sender.tag].selected)
@@ -81,6 +93,7 @@ class SurveySelectionType: UIView {
         }
         iTotalCount = surveyContent.possibleAnswers.count
         selectedCount = 0
+        currentTicket = surveyContent
         bIsTypeSingle = singleType
         selectAnswers = [SelectOption]()
         answerButtons = [CheckButton]()
@@ -99,7 +112,7 @@ class SurveySelectionType: UIView {
             let answerButton = CheckButton()
             answerButton.tagValue = selectAnswers.count
             answerButton.tag = selectAnswers.count
-            answerButton.setupView(singleType, optionDetail: possibleAnswer, perRowWidth: perRowWidth)
+            answerButton.setupView(singleType, optionDetail: possibleAnswer, perRowWidth: perRowWidth, shouldShowSelectedColor: LocalConfig.instance.surveyPack.survey.displayAllQuestions)
             answerButton.translatesAutoresizingMaskIntoConstraints = false
             if singleType {
                 answerButton.button.addTarget(self, action: #selector(SurveySelectionType.btnDoClickedSingle),

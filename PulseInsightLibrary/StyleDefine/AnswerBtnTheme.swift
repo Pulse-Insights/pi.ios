@@ -24,6 +24,7 @@ open class AnswerBtnTheme {
     var perRowBackgroundColor = ColorObject(textCode: "#BABABA")
     var paddingVertical: CGFloat?
     var paddingHorizontal: CGFloat?
+    var selectedBackgroundColor = ColorObject(textCode: "#FFFFFF")
 
     func applyNewStyle(newStyle: AnswerBtnTheme) {
         self.backgroundColor.code = newStyle.backgroundColor.code
@@ -41,6 +42,7 @@ open class AnswerBtnTheme {
         self.perRowBackgroundColor.code = newStyle.perRowBackgroundColor.code
         self.paddingVertical = newStyle.paddingVertical
         self.paddingHorizontal = newStyle.paddingHorizontal
+        self.selectedBackgroundColor = newStyle.selectedBackgroundColor
     }
 
     func widthConStr() -> String {

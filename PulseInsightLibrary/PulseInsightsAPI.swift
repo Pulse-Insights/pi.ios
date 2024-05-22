@@ -129,6 +129,27 @@ class PulseInsightsAPI {
             }
         }
     }
+    class func postAllAtOnce( _ answers: [SurveyAnswer], callback:@escaping (_ bResult: Bool) -> Void ) {
+        var props = commonPropSet()
+        props["identifier"] = LocalConfig.instance.strAccountID
+
+        let encoder = JSONEncoder()
+        if let jsonData = try? encoder.encode(answers) {
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                props["answers"] = jsonString
+            }
+        }
+        
+        let queryUrl = composeUrlString(path: "/submissions/\(LocalConfig.instance.strSubmitID)/all_answers", queryProps: props)
+
+        HttpCore.requestUrl(queryUrl) { (data) -> Void in
+            if data != "error"{
+                callback(true)
+            } else {
+                callback(false)
+            }
+        }
+    }
     class func checkPollParserElement(_ strQuestionType: String) -> Bool {
         var shouldParsePoll: Bool = false
         if strQuestionType == Define.piSurveyTypeSingleChoiseQuestion {

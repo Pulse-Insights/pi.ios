@@ -8,14 +8,18 @@
 
 import UIKit
 
-class SurveyMainViewController: UIViewController {
+class SurveyMainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     @IBOutlet weak var piSurveyView: SurveyView!
 
     @IBOutlet weak var invitationWidget: WidgetView!
     @IBOutlet weak var backOverlayView: UIView!
+
+    @IBOutlet weak var allQuestionsView: UITableView!
     @IBOutlet weak var surveyMarginTop: NSLayoutConstraint!
     @IBOutlet weak var surveyMarginBottom: NSLayoutConstraint!
+    var surveyAnswers = SurveyAnswers()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -151,9 +155,63 @@ class SurveyMainViewController: UIViewController {
         } else {
             surveyMarginTop.constant = CGFloat(0)
         }
-        piSurveyView.isHidden = false
         invitationWidget.isHidden = true
-        piSurveyView.setupSurveyContent(LocalConfig.instance.surveyTickets)
+        if (LocalConfig.instance.surveyPack.survey.displayAllQuestions) {
+            allQuestionsView.dataSource = self
+            allQuestionsView.delegate = self
+            allQuestionsView.register(SurveyItemTableViewCell.self, forCellReuseIdentifier: "SurveyItemCell")
+            piSurveyView.isHidden = true
+            allQuestionsView.isHidden = false
+        } else {
+            piSurveyView.isHidden = false
+            piSurveyView.setupSurveyContent(LocalConfig.instance.surveyTickets)
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return LocalConfig.instance.surveyTickets.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyItemCell", for: indexPath) as! SurveyItemTableViewCell
+        let surveyItem = LocalConfig.instance.surveyTickets[indexPath.row]
+        cell.surveyItemView.displayCloseButton(indexPath.row == 0)
+        cell.surveyItemView.delegateViewResult = self
+        cell.surveyItemView.setupSurveyItem(surveyItem)
+        cell.delegate = self
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = .clear
+
+        let button = UIButton(type: .system)
+        
+        button.setTitle(LocalConfig.instance.surveyPack.survey.allAtOnceSubmitLabel, for: .normal)
+        button.addTarget(self, action: #selector(didTapFooterButton), for: .touchUpInside)
+
+        footerView.addSubview(button)
+
+        button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: footerView.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: footerView.centerYAnchor)
+        ])
+
+        return footerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 60
+    }
+
+    @objc func didTapFooterButton() {
+        // print("Footer button tapped", surveyAnswers.getAnswers())
+        PulseInsightsAPI.postAllAtOnce(surveyAnswers.getAnswers()) { bResult in
+            self.disableSurvey()
+        }
     }
 }
 extension SurveyMainViewController: SurveyViewResult {
@@ -168,6 +226,15 @@ extension SurveyMainViewController: WidgetViewResult {
             disableSurvey()
         } else {
             changeToSurveyMain()
+        }
+    }
+}
+
+extension SurveyMainViewController: SurveyItemTableViewCellDelegate {
+    func onItemAnswerSelected(_ cell: SurveyItemTableViewCell, didUpdateAnswer answer: String) {
+        if let ticket = cell.surveyItemView.getCurrentSurveyData() {
+            // Add to list
+            surveyAnswers.setAnswer(questionId: ticket.surveyId, questionType: ticket.questionType, answer: answer)
         }
     }
 }
