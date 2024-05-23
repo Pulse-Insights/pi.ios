@@ -34,6 +34,8 @@ class SurveyTicket: Decodable {
     var rawNps: String?
     var before_answers_items: String?
     var after_answers_items: String?
+    var isOptional: String?
+    var empty_error_text: String?
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -60,6 +62,8 @@ class SurveyTicket: Decodable {
         case rawNps = "nps"
         case before_answers_items
         case after_answers_items
+        case isOptional = "optional"
+        case empty_error_text
     }
 }
 extension SurveyTicket {
@@ -152,5 +156,9 @@ extension SurveyTicket {
 
     var afterAnswersItems: [String] {
         return JSONDataParser.parseArray(with: after_answers_items, elementType: String.self)
+    }
+    
+    var isQuestionOptional: Bool {
+        return isOptional == "t"
     }
 }

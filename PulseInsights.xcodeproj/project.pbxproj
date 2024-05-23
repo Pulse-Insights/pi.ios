@@ -137,6 +137,7 @@
 		BB9D42342BF5F7650037C343 /* SurveyItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB9D42332BF5F7650037C343 /* SurveyItemView.xib */; };
 		BB9F60852BFB36B90018D7FA /* AllQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F60842BFB36B90018D7FA /* AllQuestionTableViewCell.swift */; };
 		BB9F608B2BFDD6C00018D7FA /* SurveyAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F608A2BFDD6C00018D7FA /* SurveyAnswers.swift */; };
+		BBAF96BA2BFF283B002D4852 /* FontErrorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAF96B92BFF283B002D4852 /* FontErrorTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -332,6 +333,7 @@
 		BB9D42332BF5F7650037C343 /* SurveyItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveyItemView.xib; sourceTree = "<group>"; };
 		BB9F60842BFB36B90018D7FA /* AllQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		BB9F608A2BFDD6C00018D7FA /* SurveyAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAnswers.swift; sourceTree = "<group>"; };
+		BBAF96B92BFF283B002D4852 /* FontErrorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontErrorTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +399,7 @@
 				417DD64F2383E37E00FEC6E6 /* FontLargeTheme.swift */,
 				417DD6512383E38D00FEC6E6 /* FontMediumTheme.swift */,
 				417DD6532383E39900FEC6E6 /* FontSmallTheme.swift */,
+				BBAF96B92BFF283B002D4852 /* FontErrorTheme.swift */,
 				417DD6552383E3A600FEC6E6 /* FreeTextTheme.swift */,
 				41F5227A239F663100ABB81B /* HelperTheme.swift */,
 				3F21B73B2668AC14008C263B /* AnswersHelperTheme.swift */,
@@ -903,6 +906,7 @@
 				8E21D0CC1E03D18A00E16427 /* PIPreferencesManager.swift in Sources */,
 				41BBDE6B23D93908001E69E9 /* Survey.swift in Sources */,
 				8EA9158C1E276FCD00DD282D /* SurveySelectionType.swift in Sources */,
+				BBAF96BA2BFF283B002D4852 /* FontErrorTheme.swift in Sources */,
 				3F21B72526663FC4008C263B /* AnswerBeforeAfterView.swift in Sources */,
 				41053C162047F6D7000A934E /* SurveyInlineResult.swift in Sources */,
 				4128A81E23DAC41E00102876 /* CheckBoxStyle.swift in Sources */,

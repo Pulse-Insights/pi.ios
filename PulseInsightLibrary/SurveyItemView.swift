@@ -93,7 +93,7 @@ open class SurveyItemView: UIView {
             setSubmitBtn(submitTitle, enable: enableSubmitBtn)
         }
     }
-    @IBOutlet weak var buttonContainer: UIView!
+    @IBOutlet weak var buttonContainer: HeightSetableUIView!
     @IBOutlet weak var btnMarginLeft: NSLayoutConstraint! {
         didSet {
             LocalConfig.instance.themeStyle.submitBtn.configMarginConstraint(btnMarginLeft)
@@ -205,6 +205,9 @@ open class SurveyItemView: UIView {
         setup()
     }
     @IBOutlet var containerView: UIView!
+    @IBOutlet weak var innerCover: UIView!
+    @IBOutlet weak var errorMessage: UILabel!
+    @IBOutlet weak var errorMessageContainer: HeightSetableUIView!
     func setup() {
         pulseInsights = PulseInsights.getInstance
         loadViewFromXib(nibName: "SurveyItemView")
@@ -225,7 +228,7 @@ open class SurveyItemView: UIView {
         displayInviteView(false)
         innerInviteView.addGestureRecognizer( UITapGestureRecognizer(target: self, action: #selector(self.onInviteClicked)))
         inviteButton.addTarget(self, action: #selector(self.onInviteClicked), for: .touchUpInside)
-
+        
         self.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         UIApplication.shared.isStatusBarHidden = true
         let actTapSurveyAround = UITapGestureRecognizer(target: self, action: #selector(self.tapSurveyAround(_:)))
@@ -239,7 +242,7 @@ open class SurveyItemView: UIView {
         pollResultView = SurveyPollResultView()
         piSurveyInsideScrollview.addSubview(pollResultView)
         piSurveyInsideScrollview.goneHide()
-        buttonContainer.isHidden = true
+        buttonContainer.goneHide()
         displayBeforeHelper(false)
         displayAfterHelper(false)
         beforeAnswerView.hide()
@@ -250,6 +253,7 @@ open class SurveyItemView: UIView {
         freeTextView.isHidden = true
         pollResultView.isHidden = true
         piSurveyThanksmsg.isHidden = true
+        errorMessageContainer.goneHide()
         chooseContentView.translatesAutoresizingMaskIntoConstraints = false
         customContentView.translatesAutoresizingMaskIntoConstraints = false
         freeTextView.translatesAutoresizingMaskIntoConstraints = false
@@ -297,7 +301,6 @@ open class SurveyItemView: UIView {
             }
         }
     }
-    @IBOutlet weak var innerCover: UIView!
     
     func setupSurveyItem(_ item: SurveyTicket) {
         
@@ -573,7 +576,6 @@ open class SurveyItemView: UIView {
         displayTitleLabel(true)
         displayBeforeHelper(!surveyItem.beforeHelper.isEmpty)
         displayAfterHelper(!surveyItem.afterHelper.isEmpty)
-        buttonContainer.isHidden = true
         nowRunningSurveyItem = surveyItem
         freeTextView.onChangeListener = Delegate<Void, Void>()
         chooseContentView.callBackBtnClicked = nil
@@ -614,6 +616,20 @@ open class SurveyItemView: UIView {
     
     func getCurrentSurveyData() -> SurveyTicket? {
         return nowRunningSurveyItem
+    }
+    
+    func showError(_ show: String) {
+        if(show.isEmpty) {
+            errorMessageContainer.goneHide()
+        } else {
+            var error = LocalConfig.instance.surveyPack.survey.allAtOnceErrorText
+            if let questionEmptyError = nowRunningSurveyItem?.empty_error_text {
+                error = questionEmptyError
+            }
+            errorMessage.attributedText =
+                FormatSetTool.transferToHtmlFormatInAttribute(error, fontDetail: LocalConfig.instance.themeStyle.errorFont.getFormater())
+            errorMessageContainer.unHide()
+        }
     }
 }
 

@@ -187,17 +187,28 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
         let footerView = UIView()
         footerView.backgroundColor = .clear
 
-        let button = UIButton(type: .system)
+        let submitButton = UIButton(type: .system)
+        let padding = CGFloat(LocalConfig.instance.themeStyle.submitBtn.padding)
+        let horizontalPadding =
+            LocalConfig.instance.themeStyle.submitBtn.paddingHorizontal ?? padding
+        let verticalPadding =
+            LocalConfig.instance.themeStyle.submitBtn.paddingVertical ?? padding
+        submitButton.contentEdgeInsets =  UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
+        submitButton.layer.backgroundColor =
+            LocalConfig.instance.themeStyle.submitBtn.backgroundColor.color.cgColor
+        submitButton.layer.borderWidth = CGFloat(LocalConfig.instance.themeStyle.submitBtn.borderWidth)
+        submitButton.layer.borderColor = LocalConfig.instance.themeStyle.submitBtn.borderColor.color.cgColor
+        submitButton.layer.cornerRadius = LocalConfig.instance.themeStyle.submitBtn.borderRadius
         
-        button.setTitle(LocalConfig.instance.surveyPack.survey.allAtOnceSubmitLabel, for: .normal)
-        button.addTarget(self, action: #selector(didTapFooterButton), for: .touchUpInside)
+        submitButton.setTitle(LocalConfig.instance.surveyPack.survey.allAtOnceSubmitLabel, for: .normal)
+        submitButton.addTarget(self, action: #selector(didTapFooterButton), for: .touchUpInside)
 
-        footerView.addSubview(button)
+        footerView.addSubview(submitButton)
 
-        button.translatesAutoresizingMaskIntoConstraints = false
+        submitButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: footerView.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: footerView.centerYAnchor)
+            submitButton.centerXAnchor.constraint(equalTo: footerView.centerXAnchor),
+            submitButton.centerYAnchor.constraint(equalTo: footerView.centerYAnchor)
         ])
 
         return footerView
@@ -209,9 +220,31 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
 
     @objc func didTapFooterButton() {
         // print("Footer button tapped", surveyAnswers.getAnswers())
-        PulseInsightsAPI.postAllAtOnce(surveyAnswers.getAnswers()) { bResult in
-            self.disableSurvey()
+        
+        if(LocalConfig.instance.surveyPack.survey.allAtOnceEmptyErrorEnabled) {
+            // check each question is optional or not, and if it's not and not answered, show error
+            var error = ""
+            for (index, surveyItem) in LocalConfig.instance.surveyTickets.enumerated() {
+                if !surveyItem.isQuestionOptional {
+                    let answered = surveyAnswers.isAnswered(questionId: surveyItem.surveyId)
+                    error = answered ? "" : "error"
+                    if let cell = allQuestionsView.cellForRow(at: IndexPath(row: index, section: 0)) as? SurveyItemTableViewCell {
+                        cell.surveyItemView.showError(error)
+                    }
+                }
+            }
+            if(error.isEmpty) {
+                PulseInsightsAPI.postAllAtOnce(surveyAnswers.getAnswers()) { bResult in
+                    self.disableSurvey()
+                }
+            }
+        } else if (surveyAnswers.isEmpty()) {
+            let alertController = UIAlertController(title: "Warning", message: "Please answer at least one question.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+            return
         }
+
     }
 }
 extension SurveyMainViewController: SurveyViewResult {

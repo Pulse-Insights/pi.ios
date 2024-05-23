@@ -66,7 +66,7 @@ class SurveyTextType: UIView, UITextViewDelegate {
             .constraints(withVisualFormat: "H:|-(>=0)-[view]-(>=0)-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterX,
                          metrics: nil, views: ["view": txtInputPart]))
         self.addConstraints(NSLayoutConstraint
-            .constraints(withVisualFormat: "V:|-0-[view(250)]-[label]", options: NSLayoutConstraint.FormatOptions(),
+            .constraints(withVisualFormat: "V:|-0-[view(200)]-[label]", options: NSLayoutConstraint.FormatOptions(),
                          metrics: nil, views: ["view": txtInputPart, "label": counterLabel]))
         self.addConstraints(NSLayoutConstraint
             .constraints(withVisualFormat: "H:|-(>=0)-[view]-(>=0)-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterX,
@@ -75,7 +75,7 @@ class SurveyTextType: UIView, UITextViewDelegate {
             .constraints(withVisualFormat: "H:|-(>=0)-[view]-0-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterX,
                          metrics: nil, views: ["view": counterLabel]))
         self.addConstraints(NSLayoutConstraint
-            .constraints(withVisualFormat: "V:|-0-[view(250)]", options: NSLayoutConstraint.FormatOptions(),
+            .constraints(withVisualFormat: "V:|-0-[view(200)]", options: NSLayoutConstraint.FormatOptions(),
                          metrics: nil, views: ["view": txtHintPart]))
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         containerView.addGestureRecognizer(tap)

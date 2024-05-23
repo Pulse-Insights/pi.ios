@@ -20,6 +20,7 @@ class RemoteTheme: Decodable {
     var largeFont: FontStyleBase?
     var mediumFont: FontStyleBase?
     var smallFont: FontStyleBase?
+    var errorFont: FontStyleBase?
     var freeText: FreeTextStyle?
     var branding: BrandStyle?
     var invite: InviteTextStyle?
@@ -41,6 +42,7 @@ class RemoteTheme: Decodable {
         case largeFont = "font-large"
         case mediumFont = "font-medium"
         case smallFont = "font-small"
+        case errorFont = "question-error-text"
         case freeText = "free-text"
         case branding
         case invite = "invitation-text"
