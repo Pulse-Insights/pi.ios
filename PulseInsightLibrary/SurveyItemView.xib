@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveyView" customModule="PulseInsights">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveyItemView" customModule="PulseInsights" customModuleProvider="target">
             <connections>
                 <outlet property="afterAnswerView" destination="MOJ-eS-PqN" id="h7S-xv-5VW"/>
                 <outlet property="afterHelperView" destination="kV1-l2-wu6" id="TbX-l3-xWr"/>
@@ -236,6 +236,13 @@
                                 <constraint firstAttribute="trailing" secondItem="MOJ-eS-PqN" secondAttribute="trailing" id="yFM-iy-G9R"/>
                             </constraints>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3EO-Vz-70m">
+                            <rect key="frame" x="166" y="313" width="42" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pi_logo" translatesAutoresizingMaskIntoConstraints="NO" id="70Y-le-hK5">
                             <rect key="frame" x="10" y="605" width="84" height="32"/>
                             <constraints>
