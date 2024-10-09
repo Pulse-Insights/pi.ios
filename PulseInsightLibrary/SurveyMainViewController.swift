@@ -164,6 +164,7 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
             allQuestionsView.isHidden = false
         } else {
             piSurveyView.isHidden = false
+            allQuestionsView.isHidden = true
             piSurveyView.setupSurveyContent(LocalConfig.instance.surveyTickets)
         }
         

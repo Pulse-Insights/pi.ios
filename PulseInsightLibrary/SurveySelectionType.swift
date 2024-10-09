@@ -61,10 +61,11 @@ class SurveySelectionType: UIView {
         var answer = ""
         if LocalConfig.instance.surveyPack.survey.displayAllQuestions {
             answer = answerButtons[sender.tag].selected ? selectAnswers[sender.tag].itemId : ""
+            callBackBtnClicked?(answer, currentTicket!.surveyId)
         } else {
             answer = selectAnswers[sender.tag].itemId
+            callBackBtnClicked?(answer, selectAnswers[sender.tag].nextQuestionId)
         }
-        callBackBtnClicked?(answer, currentTicket!.surveyId)
     }
     @objc func btnDoClickedMuti(_ sender: CheckButton!) {
         let bStatusNext: Bool = !(answerButtons[sender.tag].selected)
