@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveyMainViewController" customModule="PulseInsightLibrary">
             <connections>
                 <outlet property="allQuestionsView" destination="z8Q-FF-Em6" id="2wt-jU-hea"/>
+                <outlet property="allQuestionsViewTopConstraint" destination="qzp-O8-RE1" id="1bj-s4-Bbf"/>
                 <outlet property="backOverlayView" destination="cPR-nN-iHd" id="SQJ-ra-BSG"/>
                 <outlet property="invitationWidget" destination="S1A-WQ-AxV" id="CiJ-ug-pMY"/>
                 <outlet property="piSurveyView" destination="aGN-0t-Ntf" id="5GN-yj-MGC"/>
@@ -42,17 +43,15 @@
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z8Q-FF-Em6">
                     <rect key="frame" x="0.0" y="20" width="414" height="716"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="3hm-2A-Kwq"/>
             <color key="backgroundColor" red="0.96991185899999999" green="0.96991185899999999" blue="0.96991185899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="z8Q-FF-Em6" firstAttribute="top" secondItem="3hm-2A-Kwq" secondAttribute="top" id="7H8-iR-Y0v"/>
                 <constraint firstItem="cPR-nN-iHd" firstAttribute="leading" secondItem="Ouy-ne-wTD" secondAttribute="leading" id="CYi-7y-fsk"/>
                 <constraint firstItem="z8Q-FF-Em6" firstAttribute="leading" secondItem="3hm-2A-Kwq" secondAttribute="leading" id="PIi-We-lL2"/>
                 <constraint firstItem="aGN-0t-Ntf" firstAttribute="top" secondItem="3hm-2A-Kwq" secondAttribute="top" id="SYE-yg-KJV"/>
-                <constraint firstItem="3hm-2A-Kwq" firstAttribute="bottom" secondItem="z8Q-FF-Em6" secondAttribute="bottom" id="Vey-7N-LHJ"/>
                 <constraint firstItem="3hm-2A-Kwq" firstAttribute="trailing" secondItem="aGN-0t-Ntf" secondAttribute="trailing" id="dxi-dK-nk2"/>
                 <constraint firstAttribute="bottom" secondItem="S1A-WQ-AxV" secondAttribute="bottom" id="eFm-WG-9XR"/>
                 <constraint firstItem="3hm-2A-Kwq" firstAttribute="bottom" secondItem="aGN-0t-Ntf" secondAttribute="bottom" id="jAm-jb-fGo"/>
@@ -60,8 +59,10 @@
                 <constraint firstAttribute="bottom" secondItem="cPR-nN-iHd" secondAttribute="bottom" id="jzl-QS-jlx"/>
                 <constraint firstAttribute="trailing" secondItem="S1A-WQ-AxV" secondAttribute="trailing" id="klc-EV-awz"/>
                 <constraint firstItem="S1A-WQ-AxV" firstAttribute="leading" secondItem="Ouy-ne-wTD" secondAttribute="leading" id="m1u-Zk-D97"/>
+                <constraint firstItem="z8Q-FF-Em6" firstAttribute="bottom" secondItem="cPR-nN-iHd" secondAttribute="bottom" id="mZz-fw-wlG"/>
                 <constraint firstItem="aGN-0t-Ntf" firstAttribute="leading" secondItem="3hm-2A-Kwq" secondAttribute="leading" id="nJN-gR-cGa"/>
                 <constraint firstAttribute="trailing" secondItem="cPR-nN-iHd" secondAttribute="trailing" id="oZb-cH-aBX"/>
+                <constraint firstItem="z8Q-FF-Em6" firstAttribute="top" secondItem="3hm-2A-Kwq" secondAttribute="top" id="qzp-O8-RE1"/>
                 <constraint firstItem="cPR-nN-iHd" firstAttribute="top" secondItem="Ouy-ne-wTD" secondAttribute="top" id="uL2-Jf-tFB"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

@@ -18,6 +18,7 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var allQuestionsView: UITableView!
     @IBOutlet weak var surveyMarginTop: NSLayoutConstraint!
     @IBOutlet weak var surveyMarginBottom: NSLayoutConstraint!
+    @IBOutlet weak var allQuestionsViewTopConstraint: NSLayoutConstraint!
     var surveyAnswers = SurveyAnswers()
 
     override func viewDidLoad() {
@@ -42,7 +43,14 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
         } else {
             self.changeToSurveyMain()
         }
+
+        allQuestionsView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
+
+    deinit {
+        allQuestionsView.removeObserver(self, forKeyPath: "contentSize")
+    }
+
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             var topMoves = CGFloat(0)
@@ -158,17 +166,48 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
         }
         invitationWidget.isHidden = true
         if (LocalConfig.instance.surveyPack.survey.displayAllQuestions) {
+            piSurveyView.isHidden = true
+            allQuestionsView.isHidden = false
+            allQuestionsView.backgroundColor = LocalConfig.instance.themeStyle.widget.backgroundColor.color
             allQuestionsView.dataSource = self
             allQuestionsView.delegate = self
             allQuestionsView.register(SurveyItemTableViewCell.self, forCellReuseIdentifier: "SurveyItemCell")
-            piSurveyView.isHidden = true
-            allQuestionsView.isHidden = false
+            allQuestionsView.reloadData()
+            self.view.layoutIfNeeded()
         } else {
             piSurveyView.isHidden = false
             allQuestionsView.isHidden = true
             piSurveyView.setupSurveyContent(LocalConfig.instance.surveyTickets)
         }
         
+    }
+
+    func updateTableViewHeight() {
+        var contentHeight = allQuestionsView.contentSize.height
+        // Add the height for each section footer
+        for section in 0..<allQuestionsView.numberOfSections {
+                if let footerHeight = allQuestionsView.delegate?.tableView?(allQuestionsView, heightForFooterInSection: section) {
+                    contentHeight += footerHeight
+                }
+            }
+        let parentViewHeight = self.view.frame.height - view.safeAreaInsets.bottom
+            
+        if contentHeight > parentViewHeight {
+            // Align tableView to the top of the parent view
+            allQuestionsViewTopConstraint.constant = 0
+        } else {
+            // Adjust top constraint based on content size
+            let topOffset = parentViewHeight - contentHeight
+            allQuestionsViewTopConstraint.constant = topOffset
+        }
+        // Refresh layout
+        self.view.layoutIfNeeded()
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+            if keyPath == "contentSize" {
+                updateTableViewHeight()
+            }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -187,7 +226,7 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView()
-        footerView.backgroundColor = .clear
+        footerView.backgroundColor = LocalConfig.instance.themeStyle.widget.backgroundColor.color
 
         let submitButton = UIButton(type: .system)
         let padding = CGFloat(LocalConfig.instance.themeStyle.submitBtn.padding)
@@ -217,7 +256,7 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 60
+        return 48
     }
 
     @objc func didTapFooterButton() {
