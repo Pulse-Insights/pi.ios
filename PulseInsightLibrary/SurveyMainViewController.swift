@@ -131,6 +131,7 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
     fileprivate func changeToInviteWidget() {
         print("Main height: \( self.view.bounds.height)")
         piSurveyView.isHidden = true
+        allQuestionsView.isHidden = true
         invitationWidget.isHidden = false
         invitationWidget.displayWidget()
     }
