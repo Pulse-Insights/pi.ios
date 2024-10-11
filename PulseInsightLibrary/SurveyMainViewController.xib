@@ -16,7 +16,6 @@
                 <outlet property="backOverlayView" destination="cPR-nN-iHd" id="SQJ-ra-BSG"/>
                 <outlet property="invitationWidget" destination="S1A-WQ-AxV" id="CiJ-ug-pMY"/>
                 <outlet property="piSurveyView" destination="aGN-0t-Ntf" id="5GN-yj-MGC"/>
-                <outlet property="surveyMarginBottom" destination="jAm-jb-fGo" id="war-ua-yHa"/>
                 <outlet property="surveyMarginTop" destination="SYE-yg-KJV" id="gfK-D3-Epy"/>
                 <outlet property="view" destination="Ouy-ne-wTD" id="Rwt-jH-qIF"/>
             </connections>
@@ -54,12 +53,12 @@
                 <constraint firstItem="aGN-0t-Ntf" firstAttribute="top" secondItem="3hm-2A-Kwq" secondAttribute="top" id="SYE-yg-KJV"/>
                 <constraint firstItem="3hm-2A-Kwq" firstAttribute="trailing" secondItem="aGN-0t-Ntf" secondAttribute="trailing" id="dxi-dK-nk2"/>
                 <constraint firstAttribute="bottom" secondItem="S1A-WQ-AxV" secondAttribute="bottom" id="eFm-WG-9XR"/>
-                <constraint firstItem="3hm-2A-Kwq" firstAttribute="bottom" secondItem="aGN-0t-Ntf" secondAttribute="bottom" id="jAm-jb-fGo"/>
                 <constraint firstItem="3hm-2A-Kwq" firstAttribute="trailing" secondItem="z8Q-FF-Em6" secondAttribute="trailing" id="jgS-ZL-NtL"/>
                 <constraint firstAttribute="bottom" secondItem="cPR-nN-iHd" secondAttribute="bottom" id="jzl-QS-jlx"/>
                 <constraint firstAttribute="trailing" secondItem="S1A-WQ-AxV" secondAttribute="trailing" id="klc-EV-awz"/>
                 <constraint firstItem="S1A-WQ-AxV" firstAttribute="leading" secondItem="Ouy-ne-wTD" secondAttribute="leading" id="m1u-Zk-D97"/>
                 <constraint firstItem="z8Q-FF-Em6" firstAttribute="bottom" secondItem="cPR-nN-iHd" secondAttribute="bottom" id="mZz-fw-wlG"/>
+                <constraint firstItem="aGN-0t-Ntf" firstAttribute="bottom" secondItem="cPR-nN-iHd" secondAttribute="bottom" id="mpE-iE-VAl"/>
                 <constraint firstItem="aGN-0t-Ntf" firstAttribute="leading" secondItem="3hm-2A-Kwq" secondAttribute="leading" id="nJN-gR-cGa"/>
                 <constraint firstAttribute="trailing" secondItem="cPR-nN-iHd" secondAttribute="trailing" id="oZb-cH-aBX"/>
                 <constraint firstItem="z8Q-FF-Em6" firstAttribute="top" secondItem="3hm-2A-Kwq" secondAttribute="top" id="qzp-O8-RE1"/>

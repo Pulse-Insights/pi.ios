@@ -494,6 +494,7 @@ open class SurveyView: UIView {
 
     fileprivate func openThanksArea(_ strThanksText: String) {
         piSurveyThanksmsg.isHidden = false
+        scrollView.isHidden = true
         piSurveyInsideScrollview.goneHide()
         piSurveyThanksmsg.attributedText =
             FormatSetTool.transferToHtmlFormatInAttribute(strThanksText, fontDetail: LocalConfig.instance.themeStyle.largeFont.getFormater())
