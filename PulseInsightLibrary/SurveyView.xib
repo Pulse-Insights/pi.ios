@@ -60,10 +60,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDK-t8-wwk">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <rect key="frame" x="0.0" y="38" width="375" height="629"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mmy-Qn-A2Q">
-                                    <rect key="frame" x="0.0" y="16" width="375" height="632"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="632"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcG-3r-XTH" customClass="StyledImageView" customModule="PulseInsights" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -225,7 +225,7 @@
                                 <constraint firstItem="Mmy-Qn-A2Q" firstAttribute="centerX" secondItem="RDK-t8-wwk" secondAttribute="centerX" id="1aI-U4-yXf"/>
                                 <constraint firstItem="Mmy-Qn-A2Q" firstAttribute="leading" secondItem="RDK-t8-wwk" secondAttribute="leading" id="Cbl-42-yqM"/>
                                 <constraint firstAttribute="bottom" secondItem="Mmy-Qn-A2Q" secondAttribute="bottom" id="QbJ-wa-JaH"/>
-                                <constraint firstItem="Mmy-Qn-A2Q" firstAttribute="top" secondItem="RDK-t8-wwk" secondAttribute="top" constant="16" id="pDX-CU-qRN"/>
+                                <constraint firstItem="Mmy-Qn-A2Q" firstAttribute="top" secondItem="RDK-t8-wwk" secondAttribute="top" id="pDX-CU-qRN"/>
                                 <constraint firstAttribute="trailing" secondItem="Mmy-Qn-A2Q" secondAttribute="trailing" id="sUA-go-0eL"/>
                             </constraints>
                         </scrollView>
@@ -252,9 +252,8 @@
                                 <constraint firstAttribute="height" constant="32" id="Zd4-B1-AuV"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIV-pA-rpd">
+                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIV-pA-rpd">
                             <rect key="frame" x="345" y="0.0" width="30" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <connections>
                                 <action selector="dismissSurvey:" destination="-1" eventType="touchUpInside" id="Olg-9d-RMW"/>
                             </connections>
@@ -262,11 +261,13 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="HIV-pA-rpd" firstAttribute="top" secondItem="wpu-9N-lR9" secondAttribute="top" id="6mC-Ja-fFS"/>
                         <constraint firstAttribute="trailing" secondItem="RQ6-bQ-6qx" secondAttribute="trailing" constant="8" id="PNT-6M-DW0"/>
+                        <constraint firstItem="RDK-t8-wwk" firstAttribute="top" secondItem="HIV-pA-rpd" secondAttribute="bottom" constant="4" id="Viy-N9-Akr"/>
                         <constraint firstItem="RQ6-bQ-6qx" firstAttribute="leading" secondItem="wpu-9N-lR9" secondAttribute="leading" constant="8" id="W5J-HF-baD"/>
                         <constraint firstItem="RDK-t8-wwk" firstAttribute="leading" secondItem="wpu-9N-lR9" secondAttribute="leading" id="Y9N-FQ-jla"/>
+                        <constraint firstAttribute="trailing" secondItem="HIV-pA-rpd" secondAttribute="trailing" id="anB-Vj-yXe"/>
                         <constraint firstAttribute="bottom" secondItem="70Y-le-hK5" secondAttribute="bottom" constant="10" id="cvZ-QP-Iox"/>
-                        <constraint firstItem="RDK-t8-wwk" firstAttribute="top" secondItem="wpu-9N-lR9" secondAttribute="top" id="fF0-al-1YE"/>
                         <constraint firstAttribute="trailing" secondItem="RDK-t8-wwk" secondAttribute="trailing" id="hEe-Ge-FbS"/>
                         <constraint firstItem="RQ6-bQ-6qx" firstAttribute="centerY" secondItem="wpu-9N-lR9" secondAttribute="centerY" id="n2d-Ly-NFT"/>
                         <constraint firstAttribute="bottom" secondItem="RDK-t8-wwk" secondAttribute="bottom" id="uOb-6L-Y5K"/>
