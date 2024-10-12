@@ -16,6 +16,7 @@
                 <outlet property="backOverlayView" destination="cPR-nN-iHd" id="SQJ-ra-BSG"/>
                 <outlet property="invitationWidget" destination="S1A-WQ-AxV" id="CiJ-ug-pMY"/>
                 <outlet property="piSurveyView" destination="aGN-0t-Ntf" id="5GN-yj-MGC"/>
+                <outlet property="surveyMarginBottom" destination="mpE-iE-VAl" id="kTy-xK-LvA"/>
                 <outlet property="surveyMarginTop" destination="SYE-yg-KJV" id="gfK-D3-Epy"/>
                 <outlet property="view" destination="Ouy-ne-wTD" id="Rwt-jH-qIF"/>
             </connections>

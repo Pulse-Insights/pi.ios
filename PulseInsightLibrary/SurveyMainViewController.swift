@@ -58,9 +58,7 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
                 topMoves = surveyMarginTop.constant
                 self.view.frame.origin.y -= topMoves
             }
-            if surveyMarginBottom.constant == 0 {
-                surveyMarginBottom.constant += (keyboardSize.height - topMoves)
-            }
+            surveyMarginBottom.constant = keyboardSize.height
         }
     }
 
@@ -71,9 +69,7 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
                 topMoves = surveyMarginTop.constant
                 self.view.frame.origin.y += topMoves
             }
-            if surveyMarginBottom.constant >= 0 {
-                surveyMarginBottom.constant -= (keyboardSize.height - topMoves)
-            }
+            surveyMarginBottom.constant = 0
         }
     }
     @objc func tapCloseButtonOfWidget(_ sender: UITapGestureRecognizer) {
