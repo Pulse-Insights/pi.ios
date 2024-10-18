@@ -139,6 +139,7 @@
 		BB9F608B2BFDD6C00018D7FA /* SurveyAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F608A2BFDD6C00018D7FA /* SurveyAnswers.swift */; };
 		BBAF96BA2BFF283B002D4852 /* FontErrorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAF96B92BFF283B002D4852 /* FontErrorTheme.swift */; };
 		BBFFDF072CBF979700E26AA9 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFFDF062CBF978F00E26AA9 /* UIFont+Extension.swift */; };
+		BBFFDF092CC10D2900E26AA9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFFDF082CC10D2000E26AA9 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,6 +337,7 @@
 		BB9F608A2BFDD6C00018D7FA /* SurveyAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAnswers.swift; sourceTree = "<group>"; };
 		BBAF96B92BFF283B002D4852 /* FontErrorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontErrorTheme.swift; sourceTree = "<group>"; };
 		BBFFDF062CBF978F00E26AA9 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		BBFFDF082CC10D2000E26AA9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,6 +466,7 @@
 		41F24D9F2295252400B57AF9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BBFFDF082CC10D2000E26AA9 /* UIColor+Extension.swift */,
 				BBFFDF062CBF978F00E26AA9 /* UIFont+Extension.swift */,
 				41F24DA02295255600B57AF9 /* UIView+Extension.swift */,
 				418405A723D1860E00AA793C /* Dictionary+Extension.swift */,
@@ -862,6 +865,7 @@
 				417DD64C2383E36100FEC6E6 /* CloseBtnTheme.swift in Sources */,
 				417DD6642383E7AD00FEC6E6 /* SubmitBtnTheme.swift in Sources */,
 				41CECC2B238FB1B2001A43B7 /* LCTextLayer.swift in Sources */,
+				BBFFDF092CC10D2900E26AA9 /* UIColor+Extension.swift in Sources */,
 				4128A82423DAC85100102876 /* FreeTextStyle.swift in Sources */,
 				3F21B73C2668AC14008C263B /* AnswersHelperTheme.swift in Sources */,
 				4128A82623DAC9D700102876 /* BrandStyle.swift in Sources */,
@@ -1161,7 +1165,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202410161816;
+				CURRENT_PROJECT_VERSION = 202410171930;
 				DEVELOPMENT_TEAM = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1170,7 +1174,7 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.1.6;
+				MARKETING_VERSION = 3.1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo.stag;
 				PRODUCT_NAME = "Staging Pulse Insights";
 				PROVISIONING_PROFILE = "";
@@ -1319,7 +1323,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SuveryDemo/Pulse InsightsStagRelease.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202410161816;
+				CURRENT_PROJECT_VERSION = 202410171930;
 				DEVELOPMENT_TEAM = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1328,7 +1332,7 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.1.6;
+				MARKETING_VERSION = 3.1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo.stag;
 				PRODUCT_NAME = "Staging Pulse Insights";
 				PROVISIONING_PROFILE = "";
@@ -1587,7 +1591,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202410161816;
+				CURRENT_PROJECT_VERSION = 202410171930;
 				DEVELOPMENT_TEAM = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1596,7 +1600,7 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.1.6;
+				MARKETING_VERSION = 3.1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo;
 				PRODUCT_NAME = "Pulse Insights";
 				PROVISIONING_PROFILE = "";
@@ -1619,7 +1623,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SuveryDemo/Pulse InsightsRelease.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202410161816;
+				CURRENT_PROJECT_VERSION = 202410171930;
 				DEVELOPMENT_TEAM = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1628,7 +1632,7 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.1.6;
+				MARKETING_VERSION = 3.1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo;
 				PRODUCT_NAME = "Pulse Insights";
 				PROVISIONING_PROFILE = "";

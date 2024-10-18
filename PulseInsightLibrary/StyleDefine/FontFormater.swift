@@ -14,4 +14,5 @@ open class FontFormater {
     var fontColor = ColorObject(textCode: "#000000")
     var alignment = "left"
     var fontStyle = "normal"
+    var fontWeight = 400.0
 }

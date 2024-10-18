@@ -40,6 +40,7 @@ class FormatSetTool {
                                                textColor: textColor,
                                                fontFamily: fontDetail.fontFace,
                                                textAlign: textAlign,
+                                               fontWeight: fontDetail.fontWeight,
                                                fontStyle: fontDetail.fontStyle)
     }
 
@@ -48,10 +49,11 @@ class FormatSetTool {
                                                textColor: UIColor = LocalConfig.instance.themeStyle.textColor.color,
                                                fontFamily: String = "sans-serif",
                                                textAlign: String = "left",
+                                               fontWeight: CGFloat = 300.0,
                                                fontStyle: String = "normal") -> NSAttributedString {
 
         let strHtmlFormatHead: String = "<html><head><meta charset=\"UTF-8\"><style type=\"text/css\">body " +
-        "{font-size: \(String(fontSize))pt; font-family: \(fontFamily); text-align: \(textAlign); font-style: \(fontStyle);}</style></head><body>"
+        "{font-size: \(String(fontSize))pt; font-family: \(fontFamily); text-align: \(textAlign); font-style: \(fontStyle); font-weight: \(fontWeight)}</style></head><body>"
         let strHtmlFormatFooter: String = "</body></html>"
         let fullRawText = "\(strHtmlFormatHead)\(strOriString)\(strHtmlFormatFooter)"
         let attrStr = try? NSMutableAttributedString  (
@@ -65,6 +67,8 @@ class FormatSetTool {
         if (haveItalic || haveOblique) {
             attrStr?.addAttributes([NSAttributedString.Key.obliqueness: 0.2], range: NSRange(location: 0, length: attrStr?.string.utf16.count ?? 0))
         }
+        let systemFont = UIFont.systemFont(ofSize: CGFloat(fontSize), weight: fontWeight == 700 ? .bold : .regular)
+        attrStr?.addAttributes([NSAttributedString.Key.font: systemFont], range: NSRange(location: 0, length: attrStr?.string.utf16.count ?? 0))
         let style = NSMutableParagraphStyle()
         if textAlign == "center" {
             style.alignment = .center

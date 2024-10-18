@@ -13,6 +13,7 @@ class FontStyleBase: Decodable {
     var fontFace: String?
     var fontSize: Int?
     var fontColor: String?
+    var fontWeight: CGFloat?
     var style: String?
     var alignment: String?
 
@@ -20,6 +21,7 @@ class FontStyleBase: Decodable {
         case fontFace = "font-face"
         case fontSize = "font-size"
         case fontColor = "font-color"
+        case fontWeight = "font-weight"
         case style
         case alignment
     }
@@ -29,6 +31,7 @@ class FontStyleBase: Decodable {
 
         themeObj.fontFace = fontFace ?? defaultStyle.fontFace
         themeObj.fontSize = fontSize ?? defaultStyle.fontSize
+        themeObj.fontWeight = fontWeight ?? defaultStyle.fontWeight
         themeObj.fontColor.code = fontColor ?? defaultStyle.fontColor.code
         themeObj.style = style ?? defaultStyle.style
         themeObj.alignment = alignment ?? defaultStyle.alignment
