@@ -104,7 +104,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="Lmr-7q-8a5" firstAttribute="leading" secondItem="7gn-v1-L7f" secondAttribute="leading" id="27O-kq-uOZ"/>
                                         <constraint firstAttribute="height" constant="140" id="DEe-u6-txG"/>
