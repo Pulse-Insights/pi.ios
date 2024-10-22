@@ -13,7 +13,8 @@ open class FontBaseTheme {
     var fontSize = 12
     var fontColor = ColorObject(textCode: "#000000")
     var alignment = "left"
-    var style = "normal"
+    var style = "bold"
+    var fontWeight = 400.0
 
     init(_ fontSize: Int = 12) {
         self.fontSize = fontSize
@@ -26,6 +27,7 @@ open class FontBaseTheme {
         formater.fontFace = fontFace
         formater.fontColor = fontColor
         formater.fontStyle = style
+        formater.fontWeight = fontWeight
         return formater
     }
 
@@ -33,6 +35,7 @@ open class FontBaseTheme {
         self.fontFace = newStyle.fontFace
         self.fontSize = newStyle.fontSize
         self.fontColor.code = newStyle.fontColor.code
+        self.fontWeight = newStyle.fontWeight
         self.alignment = newStyle.alignment
         self.style = newStyle.style
     }
@@ -41,6 +44,7 @@ open class FontBaseTheme {
         self.fontFace.updateIfNeed(newValue: style.fontFace)
         self.fontSize.updateIfNeed(newValue: style.fontSize)
         self.fontColor.code.updateIfNeed(newValue: style.fontColor)
+        self.fontWeight.updateIfNeed(newValue: style.fontWeight ?? 400)
         self.alignment.updateIfNeed(newValue: style.alignment)
         self.style.updateIfNeed(newValue: style.style)
     }

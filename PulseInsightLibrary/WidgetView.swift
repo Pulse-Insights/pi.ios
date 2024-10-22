@@ -145,11 +145,18 @@ class WidgetView: UIView {
             let verticalPadding =
                 LocalConfig.instance.themeStyle.submitBtn.paddingVertical ?? padding
             widgetButton.contentEdgeInsets =  UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
-            widgetButton.layer.backgroundColor =
-                LocalConfig.instance.themeStyle.submitBtn.backgroundColor.color.cgColor
+//            widgetButton.layer.backgroundColor =
+//                LocalConfig.instance.themeStyle.submitBtn.backgroundColor.color.cgColor
+            let normalColor = LocalConfig.instance.themeStyle.submitBtn.backgroundColor.color
+            widgetButton.setBackgroundImage(normalColor.coloredImage, for: .normal)
+
+            let highlightColor = LocalConfig.instance.themeStyle.submitBtn.backgroundColorHighlight.color
+            widgetButton.setBackgroundImage(highlightColor.coloredImage, for: .highlighted)
             widgetButton.layer.borderWidth = CGFloat(LocalConfig.instance.themeStyle.submitBtn.borderWidth)
             widgetButton.layer.borderColor = LocalConfig.instance.themeStyle.submitBtn.borderColor.color.cgColor
             widgetButton.layer.cornerRadius = LocalConfig.instance.themeStyle.submitBtn.borderRadius
+            
+            applyCornerRadiusMask(to: widgetButton)
         }
     }
     @IBOutlet var containerView: UIView!
@@ -185,7 +192,28 @@ class WidgetView: UIView {
         piWidgetMainbody.addGestureRecognizer( UITapGestureRecognizer(target: self, action: #selector(self.onMainViewSelector)))
         widgetButton.addTarget(self, action: #selector(self.onButtonSelector(_:)), for: .touchUpInside)
     }
+    
+    private func applyCornerRadiusMask(to button: UIButton) {
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: button.bounds, cornerRadius: button.layer.cornerRadius).cgPath
+        button.layer.mask = maskLayer
+    }
+    
+    private func imageWithColor(_ color: UIColor) -> UIImage? {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        context.setFillColor(color.cgColor)
+        context.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
 
+    override func layoutSubviews() {
+        self.roundCorners(corners: [.topLeft, .topRight], radius: 25)
+        self.applyCornerRadiusMask(to: widgetButton)
+    }
 //    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
 //        if outContainer.frame.contains(point) == true {
 //            let childPoint = containerView.convert(point, to: outContainer)
@@ -207,6 +235,8 @@ class WidgetView: UIView {
 //            return nil
 //        }
 //    }
+    
+    
 
     func displayWidget() {
         self.changeToWidget(LocalConfig.instance.surveyPack.survey)

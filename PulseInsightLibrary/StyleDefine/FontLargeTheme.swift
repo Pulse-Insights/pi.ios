@@ -13,4 +13,16 @@ open class FontLargeTheme: FontBaseTheme {
         super.init()
         self.fontSize = fontSize
     }
+    
+    override func getFormater() -> FontFormater {
+        let formater = FontFormater()
+        formater.alignment = alignment
+        formater.fontSize = fontSize
+        formater.fontFace = "XfinityStandard"
+        formater.fontColor = fontColor
+        formater.fontStyle = style
+        formater.fontWeight = 700
+        return formater
+        
+    }
 }

@@ -181,17 +181,6 @@ class CheckButton: UIView {
                 return ""
             }
         }
-        button.layer.borderWidth = CGFloat(LocalConfig.instance.themeStyle.ansBtn.borderWidth)
-        button.layer.borderColor = LocalConfig.instance.themeStyle.ansBtn.borderColor.color.cgColor
-        button.layer.cornerRadius = 0
-        button.isSelected = false
-        button.backgroundColor = LocalConfig.instance.themeStyle.ansBtn.backgroundColor.color
-        if !self.radioMode && selected && self.perRowWidth > 0 {
-            // need to check if it's show all questions, if so, use selectedBackgroundColor instead
-            button.backgroundColor = shouldShowSelectedColor ? LocalConfig.instance.themeStyle.ansBtn.selectedBackgroundColor.color : LocalConfig.instance.themeStyle.ansBtn.perRowBackgroundColor.color
-        } else if(self.radioMode && shouldShowSelectedColor) {
-            button.backgroundColor = selected ? LocalConfig.instance.themeStyle.ansBtn.selectedBackgroundColor.color : LocalConfig.instance.themeStyle.ansBtn.backgroundColor.color
-        }
         titleLabel.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(
             labelTitile,
             fontDetail: LocalConfig.instance.themeStyle.ansBtn.getFontDetail(),
@@ -199,6 +188,27 @@ class CheckButton: UIView {
         )
 
         titleLabel.backgroundColor = UIColor.clear
+
+        button.layer.borderWidth = CGFloat(LocalConfig.instance.themeStyle.ansBtn.borderWidth)
+        button.layer.borderColor = LocalConfig.instance.themeStyle.ansBtn.borderColor.color.cgColor
+        button.layer.cornerRadius = LocalConfig.instance.themeStyle.ansBtn.borderRadius ?? 0
+        button.isSelected = false
+        
+//        let normalColor = LocalConfig.instance.themeStyle.ansBtn.backgroundColor.color
+//        button.setBackgroundImage(normalColor.coloredImage, for: .normal)
+
+        button.backgroundColor = LocalConfig.instance.themeStyle.ansBtn.backgroundColor.color
+        
+        if !self.radioMode && selected && self.perRowWidth > 0 {
+            // need to check if it's show all questions, if so, use selectedBackgroundColor instead
+            button.backgroundColor = shouldShowSelectedColor ? LocalConfig.instance.themeStyle.ansBtn.selectedBackgroundColor.color : LocalConfig.instance.themeStyle.ansBtn.perRowBackgroundColor.color
+            titleLabel.textColor = selected ? UIColor.white : LocalConfig.instance.themeStyle.ansBtn.fontColor.color
+        } else if(self.radioMode && shouldShowSelectedColor) {
+            button.backgroundColor = selected ? LocalConfig.instance.themeStyle.ansBtn.selectedBackgroundColor.color : LocalConfig.instance.themeStyle.ansBtn.backgroundColor.color
+        } else  if(self.radioMode && !shouldShowSelectedColor) {
+            let highlightColor = LocalConfig.instance.themeStyle.ansBtn.backgroundColorHighlight.color
+            button.setBackgroundImage(highlightColor.coloredImage, for: .highlighted)
+        }
     }
 
     func applyPressedButtonStyle(_ button: HightlightButton) {
@@ -222,11 +232,17 @@ class CheckButton: UIView {
         if LocalConfig.instance.themeStyle.ansBtn.tabEffect {
             applyPressedButtonStyle(button)
         }
+        if(self.radioMode) {
+            titleLabel.textColor = .white
+        }
         print("touchDown")
     }
 
     func touchUp() {
         applyButtonStyle(button)
+        if(self.radioMode) {
+            titleLabel.textColor = LocalConfig.instance.themeStyle.ansBtn.fontColor.color
+        }
         print("touchUp")
     }
 
@@ -240,7 +256,6 @@ class CheckButton: UIView {
             return
         }
         if self.radioMode {
-
             shapeLayer.fillColor = LocalConfig.instance.themeStyle.radio.backgroundColor.color.cgColor
             shapeLayer.strokeColor = LocalConfig.instance.themeStyle.radio.borderColor.color.cgColor
             shapeLayer.lineWidth = CGFloat(LocalConfig.instance.themeStyle.radio.borderWidth)
@@ -260,6 +275,8 @@ class CheckButton: UIView {
             }
 
         } else {
+            let rectPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: btnWidth, height: btnHeight))
+            shapeLayer.path = rectPath.cgPath
             shapeLayer.fillColor = LocalConfig.instance.themeStyle.checkBox.backgroundColor.color.cgColor
             shapeLayer.strokeColor = LocalConfig.instance.themeStyle.checkBox.borderColor.color.cgColor
             shapeLayer.lineWidth = CGFloat(LocalConfig.instance.themeStyle.checkBox.borderWidth)
@@ -267,7 +284,7 @@ class CheckButton: UIView {
 
             if selected {
                 let textLayer = LCTextLayer()
-                textLayer.frame = CGRect(x: innerStartX,y: innerStartY, width: btnInnerWidth, height: btnInnerHeight)
+                textLayer.frame = CGRect(x: innerStartX, y: innerStartY, width: btnInnerWidth, height: btnInnerHeight)
                 textLayer.contentsScale = UIScreen.main.scale
                 textLayer.string = "\u{2713}"
                 textLayer.foregroundColor = LocalConfig.instance.themeStyle.checkMark.color.color.cgColor

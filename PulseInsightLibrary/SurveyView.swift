@@ -75,8 +75,10 @@ open class SurveyView: UIView {
             let verticalPadding =
                 LocalConfig.instance.themeStyle.submitBtn.paddingVertical ?? padding
             submitButton.contentEdgeInsets =  UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
-            submitButton.layer.backgroundColor =
-                LocalConfig.instance.themeStyle.submitBtn.backgroundColor.color.cgColor
+            let normalColor = LocalConfig.instance.themeStyle.submitBtn.backgroundColor.color
+            submitButton.setBackgroundImage(normalColor.coloredImage, for: .normal)
+            let highlightColor = LocalConfig.instance.themeStyle.submitBtn.backgroundColorHighlight.color
+            submitButton.setBackgroundImage(highlightColor.coloredImage, for: .highlighted)
             submitButton.layer.borderWidth = CGFloat(LocalConfig.instance.themeStyle.submitBtn.borderWidth)
             submitButton.layer.borderColor = LocalConfig.instance.themeStyle.submitBtn.borderColor.color.cgColor
             submitButton.layer.cornerRadius = LocalConfig.instance.themeStyle.submitBtn.borderRadius
@@ -86,13 +88,14 @@ open class SurveyView: UIView {
     var enableSubmitBtn = true {
         didSet {
             if enableSubmitBtn {
-                submitButton.layer.backgroundColor = LocalConfig.instance.themeStyle.submitBtn.backgroundColor.color.cgColor
+                submitButton.layer.backgroundColor = UIColor.clear.cgColor
                 submitButton.layer.borderColor = LocalConfig.instance.themeStyle.submitBtn.borderColor.color.cgColor
             } else {
                 submitButton.layer.backgroundColor = LocalConfig.instance.themeStyle.submitBtn.disableBackgroundColor.color.cgColor
                 submitButton.layer.borderColor = LocalConfig.instance.themeStyle.submitBtn.disableBorderColor.color.cgColor
             }
             setSubmitBtn(submitTitle, enable: enableSubmitBtn)
+            submitButton.isEnabled = enableSubmitBtn
         }
     }
     @IBOutlet weak var buttonContainer: UIView!
@@ -169,9 +172,10 @@ open class SurveyView: UIView {
     @IBOutlet weak var closeButton: UIButton! {
         didSet {
             closeButton.setTitle("\u{2715}", for: .normal)
+            closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 24)
             closeButton.setTitleColor(LocalConfig.instance.themeStyle.closeBtn.fontColor.color, for: .normal)
             let padding = CGFloat(LocalConfig.instance.themeStyle.closeBtn.margin)
-            closeButton.contentEdgeInsets = UIEdgeInsets(top: padding,left: padding,bottom: padding,right: padding)
+            closeButton.contentEdgeInsets = UIEdgeInsets(top: padding,left: padding,bottom: 0,right: padding)
             closeButton.isHidden = !LocalConfig.instance.themeStyle.closeBtn.display
         }
     }
@@ -256,6 +260,18 @@ open class SurveyView: UIView {
         pollResultView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.bounces = false
         self.adjustItemFrameInScrollView()
+    }
+    
+    private func applyCornerRadiusMask(to button: UIButton) {
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: button.bounds, cornerRadius: button.layer.cornerRadius).cgPath
+        button.layer.mask = maskLayer
+    }
+    
+    open override func layoutSubviews() {
+        self.containerView.roundCorners(corners: [.topLeft, .topRight], radius: 25)
+        self.submitButton.layer.masksToBounds = true
+        self.submitButton.roundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 4)
     }
 
     func closeView() {
@@ -636,7 +652,7 @@ open class SurveyView: UIView {
             freeTextView.setHintText(surveyItem.hintText)
             freeTextView.maxTextLength = surveyItem.maxLength
             enableSubmitBtn = freeTextView.clearToSubmit
-            freeTextView.onChangeListener.delegate(on: self) { (_, void) ->
+            freeTextView.onChangeListener.delegate(on: self) { (self, void) ->
                 Void in
                 self.enableSubmitBtn = self.freeTextView.clearToSubmit
             }

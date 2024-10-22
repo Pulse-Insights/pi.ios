@@ -50,6 +50,14 @@ open class PulseInsights: NSObject {
 //        self.setScanFrequency(LocalConfig.instance.iTimerDurationInSecond)
         LocalConfig.instance.mPulseInsightLibraryItem = self
         self.setDebugMode(enableDebugMode)
+//        Registe custom font
+//        do {
+//            try UIFont.register(fileNameString: "XFINITYMStandard-Bold", type: "otf")
+//            try UIFont.register(fileNameString: "XfinityStandard-Medium", type: "otf")
+//            try UIFont.register(fileNameString: "XfinityStandard-Regular", type: "otf")
+//        } catch let error {
+//            print(error)
+//        }
     }
 
     open func isSurveyScanWorking() -> Bool {

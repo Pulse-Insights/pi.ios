@@ -12,6 +12,7 @@ import UIKit
 open class SubmitBtnTheme {
     //Include the button on the invite widget
     var backgroundColor = ColorObject(textCode: "#1274B8")
+    var backgroundColorHighlight = ColorObject(textCode: "#35353b")
     var borderColor = ColorObject(textCode: "#858585")
     var disableBackgroundColor = ColorObject(textCode: "#BABABA")
     var disableBorderColor = ColorObject(textCode: "#BABABA")
@@ -19,6 +20,8 @@ open class SubmitBtnTheme {
     var fontFace = "sans-serif"
     var fontSize = 16
     var fontColor: ColorObject = ColorObject(textCode: "#FFFFFF")
+    var fontStyle = "normal"
+    var fontWeight = 400.0
     var disableFontColor: ColorObject = ColorObject(textCode: "#FFFFFF")
     var width = 0
     var height = 0
@@ -35,6 +38,8 @@ open class SubmitBtnTheme {
         formater.fontSize = fontSize
         formater.fontFace = fontFace
         formater.fontColor = ColorObject(textCode: (enable ? fontColor : disableFontColor).code)
+        formater.fontStyle = fontStyle
+        formater.fontWeight = fontWeight
         return formater
     }
 
@@ -44,6 +49,7 @@ open class SubmitBtnTheme {
         self.borderWidth = newStyle.borderWidth
         self.fontFace = newStyle.fontFace
         self.fontSize = newStyle.fontSize
+        self.fontWeight = newStyle.fontWeight
         self.fontColor.code = newStyle.fontColor.code
         self.width = newStyle.width
         self.height = newStyle.height

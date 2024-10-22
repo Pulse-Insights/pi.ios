@@ -13,7 +13,10 @@ class AnswerBtnStyle: Decodable {
     var backgroundColor: String?
     var borderColor: String?
     var borderWidth: Int?
+    var borderRadius: CGFloat?
     var fontColor: String?
+    var fontWeight: CGFloat?
+    var fontSize: Int?
     var width: Int?
     var height: Int?
     var padding: Int?
@@ -31,7 +34,10 @@ class AnswerBtnStyle: Decodable {
         case backgroundColor = "background-color"
         case borderColor = "border-color"
         case borderWidth = "border-width"
+        case borderRadius = "border-radius"
         case fontColor = "font-color"
+        case fontSize = "font-size"
+        case fontWeight = "font-weight"
         case width
         case height
         case padding
@@ -53,7 +59,10 @@ class AnswerBtnStyle: Decodable {
         themeObj.selectedBackgroundColor.code = backgroundColorSelected ?? themeObj.selectedBackgroundColor.code
         themeObj.borderColor.code = borderColor ?? themeObj.borderColor.code
         themeObj.borderWidth = borderWidth ?? themeObj.borderWidth
+        themeObj.borderRadius = borderRadius ?? themeObj.borderRadius
         themeObj.fontColor.code = fontColor ?? themeObj.fontColor.code
+        themeObj.fontWeight = fontWeight ?? themeObj.fontWeight
+        themeObj.fontSize = fontSize ?? themeObj.fontSize
         themeObj.width = width ?? themeObj.width
         themeObj.height = height ?? themeObj.height
         themeObj.padding = padding ?? themeObj.padding

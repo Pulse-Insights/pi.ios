@@ -52,35 +52,43 @@ class SurveyTextType: UIView, UITextViewDelegate {
         txtInputPart.layer.borderWidth = CGFloat(LocalConfig.instance.themeStyle.freeText.borderWidth)
         txtInputPart.layer.cornerRadius = 0
         txtInputPart.layer.borderColor = LocalConfig.instance.themeStyle.freeText.borderColor.color.cgColor
-        txtInputPart.layer.backgroundColor = LocalConfig.instance.themeStyle.freeText.backgroundColor.color.cgColor
+//        txtInputPart.layer.backgroundColor = LocalConfig.instance.themeStyle.freeText.backgroundColor.color.cgColor
         txtHintPart.layer.backgroundColor = LocalConfig.instance.themeStyle.freeText.backgroundColor.color.cgColor
-        txtHintPart.layer.borderWidth =  CGFloat(LocalConfig.instance.themeStyle.freeText.borderWidth)
-        txtHintPart.layer.borderColor = LocalConfig.instance.themeStyle.freeText.borderColor.color.cgColor
+        txtHintPart.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        txtInputPart.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+//        txtHintPart.layer.borderWidth =  CGFloat(LocalConfig.instance.themeStyle.freeText.borderWidth)
+//        txtHintPart.layer.borderColor = LocalConfig.instance.themeStyle.freeText.borderColor.color.cgColor
         txtInputPart.textColor = LocalConfig.instance.themeStyle.freeText.fontColor.color
         txtInputPart.delegate = self
         txtInputPart.translatesAutoresizingMaskIntoConstraints = false
         txtHintPart.translatesAutoresizingMaskIntoConstraints = false
         counterLabel.translatesAutoresizingMaskIntoConstraints = false
 
+        // Horizontal constraints for txtInputPart
         self.addConstraints(NSLayoutConstraint
             .constraints(withVisualFormat: "H:|-(>=0)-[view]-(>=0)-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterX,
                          metrics: nil, views: ["view": txtInputPart]))
+        // Vertical constraints for txtInputPart and counterLabel
         self.addConstraints(NSLayoutConstraint
-            .constraints(withVisualFormat: "V:|-0-[view(200)]-[label]", options: NSLayoutConstraint.FormatOptions(),
+            .constraints(withVisualFormat: "V:|-16-[view(120)]-8-[label]", options: NSLayoutConstraint.FormatOptions(),
                          metrics: nil, views: ["view": txtInputPart, "label": counterLabel]))
+        // Horizontal constraints for txtHintPart
         self.addConstraints(NSLayoutConstraint
             .constraints(withVisualFormat: "H:|-(>=0)-[view]-(>=0)-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterX,
                          metrics: nil, views: ["view": txtHintPart]))
+        // hardcode
         self.addConstraints(NSLayoutConstraint
-            .constraints(withVisualFormat: "H:|-(>=0)-[view]-0-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterX,
+            .constraints(withVisualFormat: "H:|-(>=0)-[view]-16-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterX,
                          metrics: nil, views: ["view": counterLabel]))
+        // Vertical constraints for txtHintPart
         self.addConstraints(NSLayoutConstraint
-            .constraints(withVisualFormat: "V:|-0-[view(200)]", options: NSLayoutConstraint.FormatOptions(),
+            .constraints(withVisualFormat: "V:|-16-[view(120)]", options: NSLayoutConstraint.FormatOptions(),
                          metrics: nil, views: ["view": txtHintPart]))
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         containerView.addGestureRecognizer(tap)
 
     }
+
     @objc func dismissKeyboard() {
         txtInputPart.endEditing(true)
     }
@@ -95,7 +103,9 @@ class SurveyTextType: UIView, UITextViewDelegate {
     }
 
     func setHintText(_ strSetText: String) {
-        txtHintPart.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(strSetText, textColor:  LocalConfig.instance.themeStyle.freeText.placeholderFontColor.color)
+        txtHintPart.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(strSetText,
+                                                                                   fontSize: 14,
+                                                                                   textColor:  LocalConfig.instance.themeStyle.freeText.placeholderFontColor.color)
     }
     func getInputString() -> String {
         var strRtString: String = ""

@@ -16,6 +16,8 @@ class SubmitBtnStyle: Decodable {
     var fontFace: String?
     var fontSize: Int?
     var fontColor: String?
+    var fontStyle: String?
+    var fontWeight: CGFloat?
     var width: Int?
     var height: Int?
     var padding: Int?
@@ -31,6 +33,8 @@ class SubmitBtnStyle: Decodable {
         case fontFace = "font-face"
         case fontSize = "font-size"
         case fontColor = "font-color"
+        case fontStyle = "font-style"
+        case fontWeight = "font-weight"
         case width
         case height
         case padding
@@ -49,6 +53,8 @@ class SubmitBtnStyle: Decodable {
         themeObj.fontFace = fontFace ?? themeObj.fontFace
         themeObj.fontSize = fontSize ?? themeObj.fontSize
         themeObj.fontColor.code = fontColor ?? themeObj.fontColor.code
+        themeObj.fontStyle = fontStyle ?? themeObj.fontStyle
+        themeObj.fontWeight = fontWeight ?? themeObj.fontWeight
         themeObj.width = width ?? themeObj.width
         themeObj.height = height ?? themeObj.height
         themeObj.padding = padding ?? themeObj.padding
