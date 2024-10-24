@@ -161,6 +161,7 @@ class WidgetView: UIView {
     }
     @IBOutlet var containerView: UIView!
     var delegateWidgetResult: WidgetViewResult?
+    private let formatTool = FormatSetTool()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -244,12 +245,14 @@ class WidgetView: UIView {
 
     fileprivate func changeToWidget(_ surveyObj: SurveyCover) {
         buttonContainer.isHidden = surveyObj.invitationButtonDisable
-        let attributeText = FormatSetTool.transferToHtmlFormatInAttribute(
-        surveyObj.invitationButton.isEmpty ? "Start" : surveyObj.invitationButton,
-        fontDetail: LocalConfig.instance.themeStyle.submitBtn.getFormater())
+        let attributeText = formatTool.transferToHtmlFormatInAttribute(
+            surveyObj.invitationButton.isEmpty ? "Start" : surveyObj.invitationButton,
+            fontDetail: LocalConfig.instance.themeStyle.submitBtn.getFormater())
         widgetButton.setAttributedTitle(attributeText, for: .normal)
 
         let imgUrl: String = LocalConfig.instance.surveyPack.survey.background
+        // if there has no imgUrl, hide the styledImage component
+        styledImage.isHidden = imgUrl.isEmpty
         styledImage.imageUrl = imgUrl
         invitationLabel.setTitle(surveyObj.invitation, themeFont: LocalConfig.instance.themeStyle.largeFont.getFormater())
     }

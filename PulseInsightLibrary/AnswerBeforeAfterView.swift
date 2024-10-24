@@ -24,6 +24,7 @@ class AnswerBeforeAfterView: HeightSetableUIView {
     }
 
     private var paddings = [NSLayoutConstraint]()
+    private let formatTool = FormatSetTool()
 
     private func setup() {
 
@@ -47,7 +48,7 @@ class AnswerBeforeAfterView: HeightSetableUIView {
         }
         items.forEach {
             let label = UILabel()
-            label.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(
+            label.attributedText = formatTool.transferToHtmlFormatInAttribute(
                 $0,
                 fontDetail: LocalConfig.instance.themeStyle.answersHelper.font.getFormater()
             )

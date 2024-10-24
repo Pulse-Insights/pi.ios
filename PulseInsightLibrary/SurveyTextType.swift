@@ -15,6 +15,7 @@ class SurveyTextType: UIView, UITextViewDelegate {
     @IBOutlet weak var txtInputPart: UITextView!
 
     @IBOutlet weak var counterLabel: UILabel!
+    private let formatTool = FormatSetTool()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -43,7 +44,7 @@ class SurveyTextType: UIView, UITextViewDelegate {
 
     func composeCountText() {
         let counterMsg = "\(inputSize) / \(maxTextLength)"
-        counterLabel.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(counterMsg, fontDetail: LocalConfig.instance.themeStyle.smallFont.getFormater())
+        counterLabel.attributedText = formatTool.transferToHtmlFormatInAttribute(counterMsg, fontDetail: LocalConfig.instance.themeStyle.smallFont.getFormater())
     }
 
     func setup() {
@@ -103,7 +104,7 @@ class SurveyTextType: UIView, UITextViewDelegate {
     }
 
     func setHintText(_ strSetText: String) {
-        txtHintPart.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(strSetText,
+        txtHintPart.attributedText = formatTool.transferToHtmlFormatInAttribute(strSetText,
                                                                                    fontSize: 14,
                                                                                    textColor:  LocalConfig.instance.themeStyle.freeText.placeholderFontColor.color)
     }

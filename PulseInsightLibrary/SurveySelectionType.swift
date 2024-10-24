@@ -17,6 +17,7 @@ class SurveySelectionType: UIView {
     var callBackBtnClicked: ((String, String) -> Void)?
     var selectAnswers: [SelectOption] = [SelectOption]()
     var answerButtons: [CheckButton] = [CheckButton]()
+    private let formatTool = FormatSetTool()
     var strMutiSelectedRes: String = ""
     var multiOptionNext = ""
     var bIsTypeSingle: Bool = true
@@ -30,7 +31,7 @@ class SurveySelectionType: UIView {
     var counterText = "" {
         didSet {
             counterLabel.isHidden = counterText.isEmpty
-            counterLabel.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(counterText, fontDetail: LocalConfig.instance.themeStyle.smallFont.getFormater())
+            counterLabel.attributedText = formatTool.transferToHtmlFormatInAttribute(counterText, fontDetail: LocalConfig.instance.themeStyle.smallFont.getFormater())
         }
     }
     var currentTicket: SurveyTicket?

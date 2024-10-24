@@ -12,13 +12,13 @@ extension Dictionary {
     var queryString: String {
         var output: String = ""
         for (key,value) in self {
-            let rowValue: String = String("\(value)".characters)
+            let rowValue: String = String("\(value)")
             var str = rowValue.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed) ?? rowValue
             str = str.replacingOccurrences(of: ",", with: "%2C")
             str = str.replacingOccurrences(of: ":", with: "%3A")
             output +=  "\(key)=\(str)&"
         }
-        output = String(output.characters.dropLast())
+        output = String(output.dropLast())
         return output
     }
 
@@ -35,7 +35,7 @@ extension Dictionary {
         for (key,value) in self {
             output +=  "\"\(key)\":\"\(value)\","
         }
-        output = String(output.characters.dropLast())
+        output = String(output.dropLast())
         return "{\(output)}"
     }
 }

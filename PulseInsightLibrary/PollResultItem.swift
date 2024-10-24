@@ -17,6 +17,7 @@ class PollResultItem: UIView {
 
     @IBOutlet weak var resultBarBase: UIView!
     @IBOutlet weak var resultbar: UIView!
+    private let formatTool = FormatSetTool()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -34,11 +35,9 @@ class PollResultItem: UIView {
     }
 
     open func placeResultContent(_ item: AnswerOption, totalCount: NSInteger) {
-        itemTitle.attributedText =
-            FormatSetTool.transferToHtmlFormatInAttribute(item.content, fontDetail: LocalConfig.instance.themeStyle.mediumFont.getFormater())
+        itemTitle.attributedText = formatTool.transferToHtmlFormatInAttribute(item.content, fontDetail: LocalConfig.instance.themeStyle.mediumFont.getFormater())
         let resultText = composeValueString(item.getPercentage(totalCount), count: item.count)
-        valueResult.attributedText =
-            FormatSetTool.transferToHtmlFormatInAttribute(resultText, fontDetail: LocalConfig.instance.themeStyle.mediumFont.getFormater())
+        valueResult.attributedText = formatTool.transferToHtmlFormatInAttribute(resultText, fontDetail: LocalConfig.instance.themeStyle.mediumFont.getFormater())
         resultbar.translatesAutoresizingMaskIntoConstraints = false
         resultbar.backgroundColor = LocalConfig.instance.themeStyle.pollBar.barColor.color
         resultBarBase.backgroundColor = UIColor.clear

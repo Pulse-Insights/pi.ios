@@ -8,12 +8,6 @@
 
 import Foundation
 
-private let preferencesManagerSharedInstance = PIPreferencesManager()
-private var iLaunchCount: NSInteger = 0
-private var strHostUrl: String = ""
-private var strClientKey: String = ""
-private var bIsDebugModeOn: Bool = false
-private var mFirstLaunchTime: Date?
 let piDeviceUdid: String = "DEVICE_UDID"
 let piIsDebugModeEnable: String = "IS_DEBUG_MODE_ENABLE"
 let piServerHost: String = "SERVER_HOST"
@@ -23,10 +17,14 @@ let piFirstLaunchTime: String = "FIRST_LAUNCH_TIME"
 let piSurveyHistory: String = "SURVEY_HISTORY"
 
 class PIPreferencesManager {
-
-    class var sharedInstance: PIPreferencesManager {
-        return preferencesManagerSharedInstance
-    }
+    
+    static let sharedInstance = PIPreferencesManager()
+    
+    private var iLaunchCount: NSInteger = 0
+    private var strHostUrl: String = ""
+    private var strClientKey: String = ""
+    private var bIsDebugModeOn: Bool = false
+    private var mFirstLaunchTime: Date?
 
     init() {
 

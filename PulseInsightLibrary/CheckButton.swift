@@ -16,6 +16,7 @@ class CheckButton: UIView {
     lazy var containerView: UIView = UIView()
     lazy var canvasView: UIView = UIView()
     lazy var titleLabel: UILabel = UILabel()
+    private let formatTool = FormatSetTool()
     var selected: Bool = false
     var shouldShowSelectedColor: Bool = false
     var answerImage = StyledImageView() {
@@ -181,7 +182,7 @@ class CheckButton: UIView {
                 return ""
             }
         }
-        titleLabel.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(
+        titleLabel.attributedText = formatTool.transferToHtmlFormatInAttribute(
             labelTitile,
             fontDetail: LocalConfig.instance.themeStyle.ansBtn.getFontDetail(),
             setTextAlign: overrideAlignment
@@ -224,7 +225,7 @@ class CheckButton: UIView {
         button.layer.cornerRadius = 0
         button.isSelected = false
         button.backgroundColor = LocalConfig.instance.themeStyle.ansBtn.tabEffectBackgroundColor.color
-        titleLabel.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(labelTitile, fontDetail: LocalConfig.instance.themeStyle.mediumFont.getFormater(), pressEffect: true, setTextAlign: overrideAlignment)
+        titleLabel.attributedText = formatTool.transferToHtmlFormatInAttribute(labelTitile, fontDetail: LocalConfig.instance.themeStyle.mediumFont.getFormater(), pressEffect: true, setTextAlign: overrideAlignment)
         titleLabel.backgroundColor = UIColor.clear
     }
 

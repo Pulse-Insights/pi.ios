@@ -11,9 +11,8 @@ import Foundation
 import CoreMotion
 import UIKit
 
-private var mNowViewController: UIViewController?
-
 open class PulseInsights: NSObject {
+    private var mNowViewController: UIViewController?
     var surveyInlineResult: SurveyInlineResult?
     var surveyAnsweredListener: SurveyAnsweredListener?
 

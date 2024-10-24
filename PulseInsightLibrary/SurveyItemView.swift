@@ -184,6 +184,7 @@ open class SurveyItemView: UIView {
     var trackClassName: String = ""
     var pulseInsights: PulseInsights?
     var delegate: SurveyItemViewDelegate?
+    private let formatTool = FormatSetTool()
 
     @IBOutlet weak var logoView: UIImageView! {
         didSet {
@@ -486,8 +487,7 @@ open class SurveyItemView: UIView {
     fileprivate func openThanksArea(_ strThanksText: String) {
         piSurveyThanksmsg.isHidden = false
         piSurveyInsideScrollview.goneHide()
-        piSurveyThanksmsg.attributedText =
-            FormatSetTool.transferToHtmlFormatInAttribute(strThanksText, fontDetail: LocalConfig.instance.themeStyle.largeFont.getFormater())
+        piSurveyThanksmsg.attributedText = formatTool.transferToHtmlFormatInAttribute(strThanksText, fontDetail: LocalConfig.instance.themeStyle.largeFont.getFormater())
         piSurveyThanksmsg.textAlignment = .center
 
         closeTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerClose(_:)),
@@ -515,8 +515,7 @@ open class SurveyItemView: UIView {
     }
     fileprivate func setSubmitBtn(_ strTitle: String, enable: Bool = true) {
         submitTitle = strTitle
-        submitButton.setAttributedTitle(FormatSetTool
-            .transferToHtmlFormatInAttribute(strTitle, fontDetail: LocalConfig.instance.themeStyle.submitBtn.getFormater(enable: enable)), for: UIControl.State())
+        submitButton.setAttributedTitle(formatTool.transferToHtmlFormatInAttribute(strTitle, fontDetail: LocalConfig.instance.themeStyle.submitBtn.getFormater(enable: enable)), for: UIControl.State())
     }
     fileprivate func activeSelectionPart(_ enable: Bool) {
         chooseContentView.isHidden = !enable
@@ -626,8 +625,7 @@ open class SurveyItemView: UIView {
             if let questionEmptyError = nowRunningSurveyItem?.empty_error_text {
                 error = questionEmptyError
             }
-            errorMessage.attributedText =
-                FormatSetTool.transferToHtmlFormatInAttribute(error, fontDetail: LocalConfig.instance.themeStyle.errorFont.getFormater())
+            errorMessage.attributedText = formatTool.transferToHtmlFormatInAttribute(error, fontDetail: LocalConfig.instance.themeStyle.errorFont.getFormater())
             errorMessageContainer.unHide()
         }
     }

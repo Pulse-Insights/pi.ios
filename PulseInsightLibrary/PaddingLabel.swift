@@ -20,6 +20,7 @@ class PaddingLabel: HeightSetableUIView {
     @IBOutlet weak var paddingBottom: NSLayoutConstraint!
     @IBOutlet weak var paddingTop: NSLayoutConstraint!
     @IBOutlet weak var paddingLeft: NSLayoutConstraint!
+    private let formatTool = FormatSetTool()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -46,7 +47,7 @@ class PaddingLabel: HeightSetableUIView {
     }
 
     func setTitle(_ title: String, themeFont: FontFormater) {
-        textLabel.attributedText = FormatSetTool.transferToHtmlFormatInAttribute(title, fontDetail: themeFont)
+        textLabel.attributedText = formatTool.transferToHtmlFormatInAttribute(title, fontDetail: themeFont)
     }
 
 }

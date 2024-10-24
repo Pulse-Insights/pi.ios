@@ -189,6 +189,7 @@ open class SurveyView: UIView {
     var inlineType: Bool = false
     var trackClassName: String = ""
     var pulseInsights: PulseInsights?
+    private let formatTool = FormatSetTool()
     @IBOutlet weak var logoView: UIImageView! {
         didSet {
             logoView.isHidden = LocalConfig.instance.themeStyle.brand.hide
@@ -512,8 +513,7 @@ open class SurveyView: UIView {
         piSurveyThanksmsg.isHidden = false
         scrollView.isHidden = true
         piSurveyInsideScrollview.goneHide()
-        piSurveyThanksmsg.attributedText =
-            FormatSetTool.transferToHtmlFormatInAttribute(strThanksText, fontDetail: LocalConfig.instance.themeStyle.largeFont.getFormater())
+        piSurveyThanksmsg.attributedText = formatTool.transferToHtmlFormatInAttribute(strThanksText, fontDetail: LocalConfig.instance.themeStyle.largeFont.getFormater())
         piSurveyThanksmsg.textAlignment = .center
 
         closeTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerClose(_:)),
@@ -555,7 +555,7 @@ open class SurveyView: UIView {
     }
     fileprivate func setSubmitBtn(_ strTitle: String, enable: Bool = true) {
         submitTitle = strTitle
-        submitButton.setAttributedTitle(FormatSetTool
+        submitButton.setAttributedTitle(formatTool
             .transferToHtmlFormatInAttribute(strTitle, fontDetail: LocalConfig.instance.themeStyle.submitBtn.getFormater(enable: enable)), for: UIControl.State())
     }
     fileprivate func activeSelectionPart(_ enable: Bool) {
