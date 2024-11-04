@@ -33,8 +33,8 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
 
         let actTapWidgetOutside = UITapGestureRecognizer(target: self, action: #selector(self.tapOutRangeOfWidget(_:)))
         backOverlayView.addGestureRecognizer(actTapWidgetOutside)
-//        backOverlayView.isUserInteractionEnabled = true
-        backOverlayView.isHidden = true
+        backOverlayView.isUserInteractionEnabled = true
+//        backOverlayView.isHidden = true
         invitationWidget.isHidden = true
         piSurveyView.isHidden = true
         piSurveyView.delegateViewResult = self
