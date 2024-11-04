@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PulseInsights'
-  s.version          = '2.4.4'
+  s.version          = '2.4.5'
   s.summary          = 'PulseInsights survey solution for iOS app.'
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -24,8 +24,8 @@ Pod::Spec.new do |s|
   s.author           = { 'Pulse Insights' => 'hello@pulseinsights.com' }
   s.source           = { :git => 'https://github.com/Pulse-Insights/pi.ios.git', :tag => s.version }
   s.source_files = 'PulseInsightLibrary/**/*.swift'
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '16.6'
   s.frameworks = 'UIKit'
-  s.swift_version = '4.2'
+  s.swift_version = '5.0'
   s.resources    = ["PulseInsightLibrary/images.xcassets", "PulseInsightLibrary/*.xib"]
 end
