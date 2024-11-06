@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -176,7 +176,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txt-xt-ddt" userLabel="ButtonArea" customClass="HeightSetableUIView" customModule="PulseInsights" customModuleProvider="target">
                                     <rect key="frame" x="164.5" y="570" width="46" height="10"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tj1-1S-zof">
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tj1-1S-zof">
                                             <rect key="frame" x="0.0" y="0.0" width="46" height="10"/>
                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -257,8 +257,6 @@
                                 <constraint firstItem="RQ6-bQ-6qx" firstAttribute="centerY" secondItem="Mmy-Qn-A2Q" secondAttribute="centerY" id="niT-N7-vDL"/>
                                 <constraint firstItem="MOJ-eS-PqN" firstAttribute="bottom" secondItem="grg-Pi-ciK" secondAttribute="top" id="nuX-lc-a6t"/>
                                 <constraint firstItem="grg-Pi-ciK" firstAttribute="leading" secondItem="Mmy-Qn-A2Q" secondAttribute="leading" constant="10" id="tfr-pt-vJj"/>
-                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Txt-xt-ddt" secondAttribute="trailing" id="vhS-IX-XV2"/>
-                                <constraint firstItem="Txt-xt-ddt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mmy-Qn-A2Q" secondAttribute="leading" id="w1M-mt-lr8"/>
                                 <constraint firstItem="De5-9s-F1q" firstAttribute="leading" secondItem="Mmy-Qn-A2Q" secondAttribute="leading" constant="10" id="xdi-9D-Lnk"/>
                                 <constraint firstAttribute="trailing" secondItem="MOJ-eS-PqN" secondAttribute="trailing" id="yFM-iy-G9R"/>
                             </constraints>

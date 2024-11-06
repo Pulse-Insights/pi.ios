@@ -82,6 +82,7 @@ open class SurveyView: UIView {
             submitButton.layer.borderWidth = CGFloat(LocalConfig.instance.themeStyle.submitBtn.borderWidth)
             submitButton.layer.borderColor = LocalConfig.instance.themeStyle.submitBtn.borderColor.color.cgColor
             submitButton.layer.cornerRadius = LocalConfig.instance.themeStyle.submitBtn.borderRadius
+            submitButton.layer.masksToBounds = true
         }
     }
     var submitTitle = "send"
@@ -270,9 +271,8 @@ open class SurveyView: UIView {
     }
     
     open override func layoutSubviews() {
+        super.layoutSubviews()
         self.containerView.roundCorners(corners: [.topLeft, .topRight], radius: 25)
-        self.submitButton.layer.masksToBounds = true
-        self.submitButton.roundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 4)
     }
 
     func closeView() {

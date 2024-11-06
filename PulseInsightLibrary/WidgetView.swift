@@ -145,7 +145,6 @@ class WidgetView: UIView {
             let verticalPadding =
                 LocalConfig.instance.themeStyle.submitBtn.paddingVertical ?? padding
             widgetButton.contentEdgeInsets =  UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
-//            widgetButton.layer.backgroundColor =
 //                LocalConfig.instance.themeStyle.submitBtn.backgroundColor.color.cgColor
             let normalColor = LocalConfig.instance.themeStyle.submitBtn.backgroundColor.color
             widgetButton.setBackgroundImage(normalColor.coloredImage, for: .normal)
@@ -155,7 +154,7 @@ class WidgetView: UIView {
             widgetButton.layer.borderWidth = CGFloat(LocalConfig.instance.themeStyle.submitBtn.borderWidth)
             widgetButton.layer.borderColor = LocalConfig.instance.themeStyle.submitBtn.borderColor.color.cgColor
             widgetButton.layer.cornerRadius = LocalConfig.instance.themeStyle.submitBtn.borderRadius
-            
+            widgetButton.layer.masksToBounds = true
             applyCornerRadiusMask(to: widgetButton)
         }
     }
@@ -212,6 +211,7 @@ class WidgetView: UIView {
     }
 
     override func layoutSubviews() {
+        super.layoutSubviews()
         self.roundCorners(corners: [.topLeft, .topRight], radius: 25)
         self.applyCornerRadiusMask(to: widgetButton)
     }
