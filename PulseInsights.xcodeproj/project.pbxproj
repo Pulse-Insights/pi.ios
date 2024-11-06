@@ -1165,7 +1165,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202411041710;
+				CURRENT_PROJECT_VERSION = 202411061430;
 				DEVELOPMENT_TEAM = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1174,7 +1174,7 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.1.10;
+				MARKETING_VERSION = 3.1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo.stag;
 				PRODUCT_NAME = "Staging Pulse Insights";
 				PROVISIONING_PROFILE = "";
@@ -1323,7 +1323,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SuveryDemo/Pulse InsightsStagRelease.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202411041710;
+				CURRENT_PROJECT_VERSION = 202411061430;
 				DEVELOPMENT_TEAM = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1332,7 +1332,7 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.1.10;
+				MARKETING_VERSION = 3.1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo.stag;
 				PRODUCT_NAME = "Staging Pulse Insights";
 				PROVISIONING_PROFILE = "";
@@ -1591,7 +1591,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202411041710;
+				CURRENT_PROJECT_VERSION = 202411061430;
 				DEVELOPMENT_TEAM = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1600,7 +1600,7 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.1.10;
+				MARKETING_VERSION = 3.1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo;
 				PRODUCT_NAME = "Pulse Insights";
 				PROVISIONING_PROFILE = "";
@@ -1623,7 +1623,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SuveryDemo/Pulse InsightsRelease.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202411041710;
+				CURRENT_PROJECT_VERSION = 202411061430;
 				DEVELOPMENT_TEAM = 7RBX3E5287;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1632,7 +1632,7 @@
 				INFOPLIST_FILE = SuveryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.1.10;
+				MARKETING_VERSION = 3.1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulseinsights.demo;
 				PRODUCT_NAME = "Pulse Insights";
 				PROVISIONING_PROFILE = "";
